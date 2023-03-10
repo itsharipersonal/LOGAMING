@@ -1,0 +1,113 @@
+<section class="mt-5">
+    <div class="container d-flex justify-content-center align-items-center">
+        <button class="p-2 w-25 btn text-light mx-5" id="addcategory" data-bs-toggle="modal"
+            data-bs-target="#staticBackdrop"> ADD BANNER</button>
+    </div>
+
+</section>
+
+
+<section>
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+
+                </div>
+                <div class="modal-body">
+                    <h4 class=" text-center mb-3" style="font-weight:800;font-style:italic">ADD BANNER IMAGE</h4>
+                    <form action="/admin/addBannerImage" method="post" id=""
+                        class="d-flex justify-content-center align-items-center flex-column"
+                        enctype="multipart/form-data">
+                        <input type="text" name="banner" placeholder="ADD BANNER NAME"
+                            class="w-50 p-3 form-control"><br>
+                        <input type="file" class="form-control w-50 p-3" id="exampleFormControlFile1" name="image1">
+                        <button type="submit" class="p-2 w-25 btn text-dark" id="addcategory"
+                            data-bs-dismiss="modal">ADD</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="container text-center mt-5 ">
+    <span class="container text-uppercase text-light" style="font-weight:800;font-size:25px;font-style:italic;">your
+        banner</span>
+</section>
+
+<section>
+
+    <div class="container mt-5">
+        <div class="row">
+            {{#each userBanner}}
+            <div class="col-md-3 mt-3">
+                <div class="card " style="max-height:600px;min-height:300px">
+                    <img class="card-img-top img-thumbnail" id="bannerImg" src="{{this.bannerImage}}"
+                        alt="Card image cap" style="max-height:600px;min-height:200px">
+                    <div class="card-body">
+                        <h5 class="card-title text-center text-uppercase">BANNER NAME : {{this.bannerName}}</h5>
+                        <h5 class="card-title text-center text-uppercase">BANNER POSITION : {{this.bannerPosition}}</h5>
+                        <h6></h6>
+                        <button class="btn btn-dark mx-2" onclick="deleteBanner('{{this._id}}')">DELETE</button>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</section>
+
+
+<section class="container text-center mt-5 mb-5">
+    <span class="container text-uppercase text-light" style="font-weight:800;font-size:20px;font-style:italic;">you can
+        choose banner here</span>
+</section>
+
+
+<section>
+
+    <div class="container mt-2">
+        <div class="row">
+            {{#each bannerData}}
+
+            <div class="col-md-3 mt-3">
+                <div class="card " style="max-height:600px;min-height:300px">
+                    <img class="card-img-top img-thumbnail" id="bannerImg" src="{{this.bannerImage}}"
+                        alt="Card image cap" style="max-height:200px;min-height:200px;">
+                    <div class="card-body" >
+                        <h5 class="card-title text-center text-uppercase">{{this.bannerName}}</h5>
+                        <h6></h6>
+                    </div>
+                    <div class="d-flex justify-content-center align-items-end mb-2" id="view-more" >
+                        {{#if this.first}}
+                        <button class="btn btn-dark mx-2" onclick="setBannerFirst('{{this._id}}')" hidden>FIRST</button>
+                        {{else}}
+                        <button class="btn btn-dark mx-2" onclick="setBannerFirst('{{this._id}}')">FIRST</button>
+                        {{/if}}
+                        {{#if this.second}}
+                        <button class="btn btn-dark mx-2" onclick="setBannerFirst('{{this._id}}')" hidden>FIRST</button>
+                        {{else}}
+                        <button class="btn btn-dark mx-2" onclick="setBannerSecond('{{this._id}}')">SECOND</button>
+                        {{/if}}
+                        {{#if this.third}}
+                        <button class="btn btn-dark mx-2" onclick="setBannerFirst('{{this._id}}')" hidden>FIRST</button>
+                        {{else}}
+                        <button class="btn btn-dark mx-2" onclick="setBannerThird('{{this._id}}')">THIRD</button>
+                        {{/if}}
+                    </div>
+                    <button class="btn btn-dark" onclick="deleteBannerU('{{this._id}}')">DELETE</button>
+                </div>
+
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</section>
+
+<div style="height:400px;"></div>

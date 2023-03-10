@@ -1,0 +1,289 @@
+<section class="container text-center mt-5">
+  <h1 class="text-light text-uppercase" style="font-weight:800;font-style:italic;">Hii.. {{user.name}}</h1>
+  <span class="text-light" style="font-weight:600;font-size:16px;font-style:italic;">You can see your orders , cart and
+    details here </span>
+</section>
+
+
+<section class="mt-5">
+  <div class="container d-flex justify-content-center align-items-center">
+    <button class="p-2 w-25 btn text-light mx-5" id="addcategory"><a href="/order-list" class="text-light"
+        style="text-decoration:none;">MY ORDERS</a></button>
+    <button class="p-2 w-25 btn text-light mx-5" id="addcategory"><a href="/view-cart" class="text-light"
+        style="text-decoration:none;">MY CART</a></button>
+    <button class="p-2 w-25 btn text-light mx-5" id="addcategory"><a href="/view-wish" class="text-light"
+        style="text-decoration:none;">MY WISH LISTS</a></button>
+  </div>
+
+</section>
+<section class="mt-5">
+  <div class="container d-flex justify-content-center align-items-center">
+    <button class="p-2 w-25 btn text-light mx-5" id="addcategory"><a href="/verify-password" class="text-light"
+        style="text-decoration:none;">CHANGE PASSWORD</a></button>
+    <button type="button" class="p-2 w-25 btn text-light mx-5" id="addcategory" data-bs-toggle="modal"
+      data-bs-target="#staticBackdrop2">MY WALLET</button>
+  </div>
+
+</section>
+
+<section class="container" style="margin-top:150px;">
+  <div class="line-bg d-flex justify-content-center mt-5">
+    <img src="/images/line1.png" alt="" />
+  </div>
+</section>
+{{!--
+<section class="container d-flex justify-content-center align-items-center main1-3 text-center"
+  style="margin-top:50px;">
+
+  <form action="" method="post" class="pt-3" id="addProfileDetails">
+    <div class="d-flex justify-content-center align-items-center main1-3">
+      <span class="span1">YOUR</span>
+      <span class="span2">PERSONAL INFO</span>
+    </div>
+    <div class="form-group">
+      <input type="hidden" class="form-control" value="{{user._id}}" name="userId" id="contact-name"
+        onkeyup="validateName()" />
+      <span id="valid-error" class="text-white"></span>
+    </div>
+    <div class="form-group">
+      <label for="name" class="mt-3">FULL NAME</label>
+      <input type="name" class="form-control" value="{{user.name}}" name="name" id="contact-name"
+        onkeyup="validateName()" />
+      <span id="valid-error" class="text-white"></span>
+    </div>
+    <div class="form-group">
+      <label for="name" class="mt-3">MOBILE NUMBER</label>
+      <input type="phone" class="form-control " value="{{user.phone}}" name="phone" id="contact-phone"
+        onkeyup="validatePhone()" />
+      <span id="phone-error" class="text-white"></span>
+    </div>
+    <div class="form-group">
+      <label for="name" class="mt-3">EMAIL</label>
+      <input type="email" class="form-control " value="{{user.email}}" name="email" id="contact-email"
+        onkeyup="validateEmail()" />
+      <span id="email-error" class="text-white"></span>
+    </div>
+    <div class="form-group">
+      <label for="name" class="mt-3">ADDRESS</label>
+      <input type="text" class="form-control " value="{{user.address.[0].address}}" name="address" id="contact-email"
+        onkeyup="validateEmail()" />
+      <span id="email-error" class="text-white"></span>
+    </div>
+    <div class="form-group">
+      <label for="name" class="mt-3">COUNTRY</label>
+      <input type="text" class="form-control " value="{{user.address.[0].country}}" name="country" id="contact-email"
+        onkeyup="validateEmail()" />
+      <span id="email-error" class="text-white"></span>
+    </div>
+    <div class="form-group">
+      <label for="name" class="mt-3">STATE</label>
+      <input type="text" class="form-control " value="{{user.address.[0].state}}" name="state" id="contact-email"
+        onkeyup="validateEmail()" />
+      <span id="email-error" class="text-white"></span>
+    </div>
+    <div class="form-group">
+      <label for="name" class="mt-3">PINCODE</label>
+      <input type="number" class="form-control " value="{{user.address.[0].pincode}}" name="pincode" id="contact-email"
+        onkeyup="validateEmail()" />
+      <span id="email-error" class="text-white"></span>
+    </div>
+
+    <span id="submit-error" class="text-white mt-3"></span>
+    <button type="submit" class="btn mt-3 save-info" onclick="return validateForm()">SAVE INFO</button><br>
+  </form>
+</section> --}}
+
+<section class="container text-center mt-2 text-light" >
+<h5 style="font-weight:800;font-size:24px;">ADDRESS</h5>
+</section>
+<section class="container mt-3 d-flex justify-content-center align-items-center">
+  
+  {{#each address}}
+
+  <div class="card bg-transparent" style="width: 18rem;border:solid 1px #fff;margin-right:10px ">
+    <div class="card-body text-center md-3">
+      <h6 class="card-title text-center text-light text-uppercase" style="font-weight:800;font-size:20px;">{{this.address}}</h6>
+      <h6 class="card-title text-center text-light text-uppercase"style="font-weight:800;font-size:20px;">{{this.state}}</h6>
+      <h6 class="card-title text-center text-light text-uppercase"style="font-weight:800;font-size:20px;">{{this.country}}</h6>
+       <h6 class="card-title text-center text-light text-uppercase"style="font-weight:800;font-size:20px;">{{this.pincode}}</h6>
+      <button type="button" class="btn btn-danger mb-1" id="deleteAddress" onclick="deleteAddress('{{this.id}}')">DELETE</button>
+
+    </div>
+  </div>
+  {{/each}}
+  <div class="card bg-transparent" style="width: 18rem;border:solid 1px #fff ">
+    <div class="card-body text-center md-3 ">
+      <h5 class="card-title text-center text-light text-uppercase"style="visibility:hidden">Address</h5>
+      <h6 class="card-title text-center text-light text-uppercase" style="visibility:hidden">{{user.address.[0].address}}</h6>
+      <button type="button" class="btn btn-primary mt-3 mb-1" id="" data-bs-toggle="modal"
+        data-bs-target="#addressNew">ADD NEW ADDRESS</button>
+      <h6 class="card-title text-center text-light text-uppercase"style="visibility:hidden">{{user.address.[0].state}}</h6>
+      <h6 class="card-title text-center text-light text-uppercase"style="visibility:hidden">{{user.address.[0].country}}</h6>
+    </div>
+  </div>
+</section>
+
+
+<section class="container mt-3">
+  <div class="line-bg d-flex justify-content-center ">
+    <img src="/images/line1.png" alt="" />
+  </div>
+</section>
+
+<div style="height:300px;"></div>
+
+
+<section class="container">
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body">
+          <h1 class="text-center" style="font-weight:800;font-size:30px">WALLET BALANCE</h1>
+          <h1 class="text-center mt-3" style="font-weight:800;font-size:20px">BALANCE : RS {{user.wallet}}</h1>
+          <h1 class="text-center mt-3" style="font-weight:800;font-size:16px">LAST UPDATE : {{user.walletUpdate}}</h1>
+
+        </div>
+        <div class="modal-footer text-center">
+          <button type="button" class="btn btn-warning text-center" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="container">
+  <!-- Modal -->
+  <div class="modal fade" id="address1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-body">
+          <form action="" method="post"
+            class="pt-3 d-flex flex-column justify-content-center align-items-center" id="addAddress">
+            <div class="d-flex justify-content-center align-items-center main1-3">
+              <span class="span2">EDIT ADDRESS</span>
+            </div>
+            <div class="form-group">
+              <input type="hidden" class="form-control" value="{{user._id}}" name="userId" />
+            </div>
+            <div class="form-group">
+              <label for="name" class="mt-3 text-dark">FULL NAME</label>
+              <input type="name" class="form-control" value="{{user.name}}" name="name" />
+            </div>
+            <div class="form-group">
+              <label for="name" class="mt-3 text-dark">ADDRESS</label>
+              <input type="text" class="form-control " value="{{user.address.[0].address}}" name="address" />
+            </div>
+            <div class="form-group">
+              <label for="name" class="mt-3 text-dark">COUNTRY</label>
+              <input type="text" class="form-control " value="{{user.address.[0].country}}" name="country" />
+            </div>
+            <div class="form-group">
+              <label for="name" class="mt-3 text-dark">STATE</label>
+              <input type="text" class="form-control " value="{{user.address.[0].state}}" name="state" />
+            </div>
+            <div class="form-group">
+              <label for="name" class="mt-3 text-dark ">PINCODE</label>
+              <input type="number" class="form-control " value="{{user.address.[0].pincode}}" name="pincode" />
+            </div>
+            <button type="submit" class="btn mt-3 save-info text-dark" data-bs-dismiss="modal">SAVE
+              INFO</button><br>
+
+
+
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="container">
+  <!-- Modal -->
+  <div class="modal fade" id="addressNew" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-body">
+          <form action="" method="post"
+            class="pt-3 d-flex flex-column justify-content-center align-items-center" id="addNewAddress">
+            <div class="d-flex justify-content-center align-items-center main1-3">
+              <span class="span2">ADD NEW ADDRESS</span>
+            </div>
+            <div class="form-group">
+              <input type="hidden" class="form-control" value="{{user._id}}" name="userId" />
+            </div>
+            <div class="form-group">
+              <label for="name" class="mt-3 text-dark">FULL NAME</label>
+              <input type="name" class="form-control" value="{{user.name}}" name="name" />
+            </div>
+            <div class="form-group">
+              <label for="name" class="mt-3 text-dark">ADDRESS</label>
+              <input type="text" class="form-control " value="{{user.address.[0].address}}" name="address" />
+            </div>
+            <div class="form-group">
+              <label for="name" class="mt-3 text-dark">COUNTRY</label>
+              <input type="text" class="form-control " value="{{user.address.[0].country}}" name="country" />
+            </div>
+            <div class="form-group">
+              <label for="name" class="mt-3 text-dark">STATE</label>
+              <input type="text" class="form-control " value="{{user.address.[0].state}}" name="state" />
+            </div>
+            <div class="form-group">
+              <label for="name" class="mt-3 text-dark ">PINCODE</label>
+              <input type="number" class="form-control " value="{{user.address.[0].pincode}}" name="pincode" />
+            </div>
+            <button type="submit" class="btn mt-3 save-info text-dark" data-bs-dismiss="modal">SAVE
+              INFO</button><br>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+{{!--
+
+<section>
+  <form action="" method="post" class="pt-3" id="addProfileDetails">
+    <div class=" main1-3">
+      <span class="span1">YOUR</span>
+      <span class="span2">PERSONAL INFO</span>
+    </div>
+    <div class="form-group">
+      <input type="hidden" class="form-control" value="{{user._id}}" name="userId" />
+    </div>
+    <div class="form-group">
+      <label for="name" class="mt-3 text-dark">FULL NAME</label>
+      <input type="name" class="form-control" value="{{user.name}}" name="name" />
+    </div>
+    <div class="form-group">
+      <label for="name" class="mt-3 text-dark">ADDRESS</label>
+      <input type="text" class="form-control " value="{{user.address.[0].address}}" name="address" />
+    </div>
+    <div class="form-group">
+      <label for="name" class="mt-3 text-dark">COUNTRY</label>
+      <input type="text" class="form-control " value="{{user.address.[0].country}}" name="country" />
+    </div>
+    <div class="form-group">
+      <label for="name" class="mt-3 text-dark">STATE</label>
+      <input type="text" class="form-control " value="{{user.address.[0].state}}" name="state" />
+    </div>
+    <div class="form-group">
+      <label for="name" class="mt-3 text-dark ">PINCODE</label>
+      <input type="number" class="form-control " value="{{user.address.[0].pincode}}" name="pincode" />
+    </div>
+    <button type="submit" class="btn mt-3 save-info text-dark" onclick="return validateForm()">SAVE INFO</button><br>
+  </form>
+</section> --}}

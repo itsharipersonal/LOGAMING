@@ -1,0 +1,228 @@
+<section class="mt-5">
+    <div class="container d-flex justify-content-center align-items-center">
+
+        <button type="button" class="p-2 w-25 btn text-light mx-5" id="addcategory" data-bs-toggle="modal"
+            data-bs-target="#staticBackdrop3">ADD COUPON</button>
+        <button type="button" class="p-2 w-25 btn text-light mx-5" id="addcategory" data-bs-toggle="modal"
+            data-bs-target="#staticBackdrop">ADD CATEGORY OFFER</button>
+        <button type="button" class="p-2 w-25 btn text-light mx-5" id="addcategory" data-bs-toggle="modal"
+            data-bs-target="#staticBackdrop2">ADD PRODUCT OFFER</button>
+    </div>
+
+</section>
+<section class="container">
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <form action="/admin/add-catOffer" method="post"
+                        class="pt-3 d-flex flex-column justify-content-center align-items-center">
+                        <div class="d-flex justify-content-center align-items-center main1-3">
+                            <span class="span2">ADD CATEGORY OFFER</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="name" class="mt-3 text-dark">SELECT CATEGORY</label><br>
+                            <select class="custom-select tm-select-accounts" id="category" name="category">
+                                {{#each category}}
+                                <option value="{{this._id}}" name="category">{{this.category}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="name" class="mt-3 text-dark">OFFER PERCENTAGE</label>
+                            <input type="number" class="form-control " value="" name="offerPercentage" id="" />
+                        </div>
+
+                        <span id="submit-error" class="text-white mt-3"></span>
+                        <button type="submit" class="btn mt-3 save-info text-dark " onclick="return validateForm()">SAVE
+                            INFO</button><br>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="container">
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <form action="/admin/add-prodOffer" method="post"
+                        class="pt-3 d-flex flex-column justify-content-center align-items-center">
+                        <div class="d-flex justify-content-center align-items-center main1-3">
+                            <span class="span2">ADD PRODUCT OFFER</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="name" class="mt-3 text-dark">SELECT PRODUCT</label><br>
+                            <select class="custom-select tm-select-accounts" id="product" name="product">
+                                {{#each product}}
+                                <option value="{{this._id}}" name="product">{{this.productName}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="name" class="mt-3 text-dark">OFFER PERCENTAGE</label>
+                            <input type="number" class="form-control " value="" name="offerPercentage" id="" />
+                        </div>
+
+
+                        <span id="submit-error" class="text-white mt-3"></span>
+                        <button type="submit" class="btn mt-3 save-info text-dark " onclick="return validateForm()">SAVE
+                            INFO</button><br>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="container">
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <form action="/admin/add-coupon" method="post"
+                        class="pt-3 d-flex flex-column justify-content-center align-items-center">
+                        <div class="d-flex justify-content-center align-items-center main1-3">
+                            <span class="span2">ADD COUPON</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="name" class="mt-3 text-dark">COUPON CODE</label>
+                            <input type="text" class="form-control " value="" name="couponCode" id="" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="name" class="mt-3 text-dark">EXPIRY DATE</label>
+                            <input type="date" class="form-control " value="" name="expiryDate" id="" />
+                        </div>
+
+                         <div class="form-group">
+                            <label for="name" class="mt-3 text-dark">OFFER PERCENTAGE</label>
+                            <input type="number" class="form-control " value="" name="offerPercentage" id="" />
+                        </div>
+
+
+                        <span id="submit-error" class="text-white mt-3"></span>
+                        <button type="submit" class="btn mt-3 save-info text-dark " onclick="return validateForm()">SAVE
+                            INFO</button><br>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="container" style="margin-top:150px;">
+    <div class="line-bg d-flex justify-content-center mt-5">
+        <img src="/images/line1.png" alt="" />
+    </div>
+</section>
+
+<section class="container mt-5">
+    <h3 class="text-uppercase text-light text-center" style="font-weight:800;">coupon</h3>
+    <table class="table table-dark text-center" style="max-width: 80%;margin: 0 auto;">
+        <thead>
+            <tr>
+                <th class="text-uppercase" scope="col">coupon code</th>
+                <th class="text-uppercase" scope="col">OFFER PERCENTAGE</th>
+                <th class="text-uppercase" scope="col">expiryDate</th>
+                <th class="text-uppercase" scope="col">option</th>
+
+            </tr>
+        </thead>
+        {{#each coupon}}
+        <tbody>
+            <tr>
+                <td class="text-uppercase" style="font-weight:800;">{{this.couponCode}}</td>
+
+                <td class="text-uppercase" style="font-weight:800;"> {{this.offerPercentage}}%</td>
+                <td class="text-uppercase" style="font-weight:800;"> {{this.expiryDate}}</td>
+                <td> <button onclick="deleteCouponCode('{{this._id}}') "
+                        class="btn addtocart text-light mt-3">DELETE</button></td>
+            </tr>
+        </tbody>
+        {{/each}}
+    </table>
+
+</section>
+
+<section class="container mt-5">
+    <h3 class="text-uppercase text-light text-center" style="font-weight:800;">category</h3>
+    <table class="table table-dark text-center" style="max-width: 80%;margin: 0 auto;">
+        <thead>
+            <tr>
+                <th scope="col">CATEGORY NAME</th>
+                <th scope="col">OFFER PERCENTAGE</th>
+                <th scope="col">OPTION</th>
+            </tr>
+        </thead>
+        {{#each category}}
+        <tbody>
+            <tr>
+                {{#if this.categoryOffer}}
+                <td class="text-uppercase" style="font-weight:800;">{{this.category}}</td>
+                <td class="text-uppercase" style="font-weight:800;"> {{this.categoryOffer}}%</td>
+                <td> <button onclick="deleteCatOffer('{{this._id}}') "
+                        class="btn addtocart text-light mt-3">DELETE</button></td>
+                {{/if}}
+            </tr>
+        </tbody>
+        {{/each}}
+    </table>
+
+</section>
+
+<section class="container mt-5">
+    <h3 class="text-uppercase text-light text-center" style="font-weight:800;">product</h3>
+    <table class="table table-dark text-center" style="max-width: 80%;margin: 0 auto;">
+        <thead>
+            <tr>
+                <th scope="col">PRODUCT NAME</th>
+                <th scope="col">OFFER PERCENTAGE</th>
+                <th scope="col">OPTION</th>
+
+            </tr>
+        </thead>
+        {{#each product}}
+        <tbody>
+            <tr>
+                {{#if this.productOffer}}
+                <td class="text-uppercase" style="font-weight:800;">{{this.productName}}</td>
+
+                <td class="text-uppercase" style="font-weight:800;"> {{this.productOffer}}%</td>
+                <td> <button onclick="deleteProdOffer('{{this._id}}') "
+                        class="btn addtocart text-light mt-3">DELETE</button></td>
+                {{/if}}
+            </tr>
+        </tbody>
+        {{/each}}
+    </table>
+
+</section>
+
+
+
+
+<div style="height:300px;"></div>

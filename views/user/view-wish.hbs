@@ -1,0 +1,73 @@
+<section class="">
+    <div class="container ">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col">
+                <div class="card mb-5 mt-5">
+                    <div class="card-body p-4">
+
+                        {{#if value}}
+                        <div class=" text-center main1-3">
+                            <span class="span1 text-dark">YOUR</span>
+                            <span class="span2">CART IS EMPTY</span>
+
+                        </div>
+                        {{else}}
+                        <div class=" text-center main1-3">
+                            <span class="span1 text-dark">YOUR</span>
+                            <span class="span2">WISH LISTS</span>
+                        </div>
+                        {{/if}}
+
+                    </div>
+                </div>
+                <div class="card mb-4">
+                    <div class="card-body p-4">
+                        <div class="row align-items-center">
+
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th style="color:rgb(255, 8, 251);" scope="col"></th>
+                                        <th style="color:rgb(255, 8, 251);" scope="col">NAME</th>
+                                        <th style="color:rgb(255, 8, 251);" scope="col">BRAND</th>
+                                        <th style="color:rgb(255, 8, 251);" scope="col">PRICE</th>
+
+                                        <th style="color:rgb(255, 8, 251);" scope="col">OPTIONS</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    {{#each wish}}
+                                    <tr class="">
+
+                                        <th scope="row"><img src="{{this.product.image.[0]}}" alt=""
+                                                style="width:200px;"></th>
+                                        <td style="color:rgb(255, 8, 251);">{{this.product.productName}}</td>
+                                        <td style="color:rgb(236, 11, 187);">{{this.product.brand}}</td>
+                                        <td style="color:rgb(255, 8, 251);">{{this.product.price}}</td>
+                                        <td class="text-uppercase">
+                                            <button onclick="addToCart('{{product._id}}') "
+                                                class="btn btn-warning  text-light">ADD TO CART</button>
+                                            <button onclick="deleteWish('{{this.product._id}}')"
+                                                class="btn btn-dark">REMOVE</button>
+                                        </td>
+                                    </tr>
+                                    {{/each}}
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+
+</script>
+
+<div style="height:600px;"></div>

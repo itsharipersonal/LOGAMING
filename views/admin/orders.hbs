@@ -1,0 +1,65 @@
+<div class=" text-center main1-3">
+  <span class="span1">VIEW</span>
+  <span class="span2">ORDER</span>
+</div>
+
+<div class="text-center container" id="login">
+  <div class="py-5">
+    <div class="title">
+
+
+      <table class="table" id="usersTable">
+        <thead>
+          <tr>
+            <th scope="col" class="text-uppercase text-center">order date</th>
+            <th scope="col" class="text-uppercase text-center">user name</th>
+            <th scope="col" class="text-uppercase text-center">price</th>
+            <th scope="col" class="text-uppercase text-center">address</th>
+            <th scope="col" class="text-uppercase text-center">payment Method</th>
+            <th scope="col" class="text-uppercase text-center">order status</th>
+            <th scope="col" class="text-uppercase text-center">Options</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each orders}}
+          {{#if this.paymentMethod}}
+          <tr>
+            <td class="text-uppercase text-center">{{this.date}}</td>
+            <td class="text-uppercase text-center" style="font-weight:800;color:rgb(255, 255, 255);font-size:20px">
+              {{this.deliveryDetails.name}}</td>
+            <td class="text-uppercase text-center" style="font-weight:800;color:rgb(216, 5, 192);font-size:20px">RS.
+              {{this.totalAmount}}.00</td>
+            <td class="text-uppercase text-center">{{this.deliveryDetails.address}}</td>
+            <td class="text-uppercase text-center" style="font-weight:800;color:rgb(255, 255, 255);font-size:17px">
+              {{this.paymentMethod}}</td>
+            <td class="text-uppercase text-center" style="font-weight:800;color:rgb(255, 255, 255);font-size:17px">
+              {{this.status}}</td>
+            <td class="text-uppercase text-center"><a href="/admin/view-orderAdmin/{{this._id}}" class="btn btn-warning">VIEW
+                ORDER</a>
+              {{#if btn}}
+              <button class="btn btn-warning text-dark" onclick="orderShipped('{{this._id}}')"
+                id="orderCancelBtn{{this._id}}">SHIPPED</button>
+              <button class="btn btn-warning text-dark mt-3" onclick="orderDelivered('{{this._id}}')"
+                id="orderCancelBtn{{this._id}}">DELIVERED</button>
+              <button class="btn btn-warning text-dark mt-3" onclick="cancelOrder('{{this._id}}')"
+                id="orderCancelBtn{{this._id}}">CANCEL</button>
+
+              {{/if}}
+            {{#if productReturning}}
+            <button class="btn btn-warning text-dark mt-2 " onclick="returnOrderRecieved('{{this._id}}')">RETURN RECIEVED</button>
+            {{/if}}
+
+
+            </td>
+
+          </tr>
+          {{/if}}
+          {{/each}}
+
+        </tbody>
+      </table>
+
+
+
+    </div>
+  </div>

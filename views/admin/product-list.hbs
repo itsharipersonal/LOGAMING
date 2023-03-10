@@ -1,0 +1,48 @@
+<div class=" text-center main1-3">
+                        <span class="span1">PRODUCT</span>
+                        <span class="span2">VIEW</span>
+                    </div>
+<section>
+  <div class="container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col" class="text-uppercase text-center">NAME</th>
+          
+          <th scope="col" class="text-uppercase text-center">DESCRIPTION</th>
+          <th scope="col" class="text-uppercase text-center">BRAND</th>
+          <th scope="col" class="text-uppercase text-center">QUANTITY</th>
+          <th scope="col" class="text-uppercase text-center">FEATURES</th>
+          <th scope="col" class="text-uppercase text-center">PRICE</th>
+          <th scope="col" class="text-uppercase text-center">IMAGE</th>
+          <th scope="col" class="text-uppercase text-center">OPTIONS</th>
+        </tr>
+      </thead>
+      <tbody >
+        {{#each products}}
+        <tr>
+          <td class="text-uppercase text-center">{{this.productName}}</td>
+         
+          <td class="text-uppercase text-center">{{this.description}}</td>
+          <td class="text-uppercase text-center">{{this.brand}}</td>
+          <td class="text-uppercase text-center">{{this.quantity}}</td>
+          <td class="text-uppercase text-center">{{this.features}}</td>
+          <td class="text-uppercase text-center">{{this.price}}</td>
+          <td class="text-uppercase text-center">
+          <img src="{{this.image.[0]}}" alt="" style="width:100px;" />
+          <img src="{{this.image.[1]}}" alt="" style="width:100px;" />
+          <img src="{{this.image.[2]}}" alt="" style="width:100px;" />
+          <img src="{{this.image.[3]}}" alt="" style="width:100px;" />
+          </td>
+          <td class="text-uppercase text-center"><a href="/admin/edit-product/{{this._id}}" class="btn btn-success">Edit</a>
+          </td>
+          <td class="text-uppercase text-center">
+            <a class="btn btn-danger ms-5 text-uppercase"
+              onclick="return confirm('Are you sure you want to delete {{this.name}}') && deleteProd('{{this._id}}')">Delete</a>
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</section>

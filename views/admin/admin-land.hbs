@@ -1,0 +1,264 @@
+<!-- Begin Page Content -->
+
+<section class="container"> 
+    <!-- Page Heading -->
+                    <div class="mt-5 text-center">
+                        <h1 class="h3 mb-0 text-light ">Dashboard</h1><br>
+                        <div class="mt-3"><a class="btnpwd" href="/admin/sales-repo" style="text-decoration:none;">SALES REPORT</a></div>
+                    </div>
+</section>
+                <div class="container">
+
+                    
+
+                    <!-- Content Row -->
+                    <div class="row container">
+                        <section class="d-sm-flex align-items-center justify-content-center mb-4 mt-5">
+                     <canvas id="myChart" class="text-center" style="width:100%;max-width:600px"></canvas>
+                    <canvas id="myChart1" class="text-center" style="width:100%;max-width:600px"></canvas>
+                   </section>
+
+                        <!-- Earnings (Monthly) Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                Earnings (TOTAL)</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800" style="font-size:20px;">&#8377;{{this.totalAmount.total.[0].totalAmount}}</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                         <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-success shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-sucess text-uppercase mb-1">
+                                                Earnings (cod)</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">&#8377; {{this.totalAmount.cod.[0].totalAmount}}</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-success shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-sucess text-uppercase mb-1">
+                                                Earnings (online)</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">&#8377; {{this.totalAmount.online.[0].totalAmount}}</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Earnings (Monthly) Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-success shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                TOTAL PRODUCTS (DELIVERED)</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{data.deliveredProd}} nos</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-success shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                TOTAL PRODUCTS (PLACED)</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{data.placedProd}} nos</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-success shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                TOTAL PRODUCTS (PENDING)</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{data.pendingProd}} nos</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-success shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
+                                                TOTAL PRODUCTS (CANCELLED)</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{data.cancelledProd}} nos</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-success shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
+                                                TOTAL purchased PRODUCTS (Cod)</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{data.codProd}} nos</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-success shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
+                                                TOTAL purchased PRODUCTS (online)</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{data.onlineProd}} nos</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                       
+
+                        
+                    </div>
+                   
+
+                 
+
+            </div>
+            <!-- End of Main Content -->
+<div style="height:400px;"></div>
+
+
+
+            <script>
+/*var xValues = ["CANCELLED","DELIVERED", "PLACED", "PENDING"];
+var yValues = [{{data.cancelledProd}}, {{data.deliveredProd}}, {{data.placedProd}}, {{data.pendingProd}}];
+var barColors = [
+  "#b91d47",
+  "#00aba9",
+  "#2b5797",
+  "#e8c3b9",
+  "#1e7145"
+];
+
+new Chart("myChart", {
+  type: "pie",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+    title: {
+      display: true,
+      text: "ORDER STATUSES"
+    }
+  }
+});*/
+
+var xValues = ["CANCELLED", "DELIVERED", "PLACED", "PENDING"];
+var yValues = [{{data.cancelledProd}}, {{data.deliveredProd}}, {{data.placedProd}}, {{data.pendingProd}}];
+var barColors = ["red", "green","blue","orange"];
+
+new Chart("myChart", {
+  type: "bar",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+    legend: {display: false},
+    title: {
+      display: true,
+      text: "ORDER STATUS"
+    }
+  }
+});
+
+
+
+var xValues = ["ONLINE","COD"];
+var yValues = [{{this.totalAmount.online.[0].totalAmount}},{{this.totalAmount.cod.[0].totalAmount}}];
+var barColors = [
+  "#b91d47",
+  "#00aba9",
+  "#2b5797",
+  "#e8c3b9",
+  "#1e7145"
+];
+
+new Chart("myChart1", {
+  type: "pie",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+    title: {
+      display: true,
+      text: "PURCHASE HISTORY"
+    }
+  }
+});
+</script>

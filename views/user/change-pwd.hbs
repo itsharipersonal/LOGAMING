@@ -1,0 +1,53 @@
+<section class="container text-center">
+    <form action="" method="post" class="pt-3" id="changePassword">
+        <div class="d-flex justify-content-center align-items-center main1-3 mt-4">
+          <span class="span2">CHANGE </span>
+          <span class="span1">PASSWORD</span>
+        </div>
+        <span id="pass-error" class="text-white"></span>
+        <span id="submit-error" class="text-white mt-3"></span>
+        <div class="form-group mt-3">
+          <span><img src="/images/password.png" alt="" /></span>
+          <input type="password" class="form-contro mt-3" name="password" id="password-email" placeholder="NEW PASSWORD" onkeyup="validatePassword()"/>
+        </div>
+        <div class="form-group mt-3">
+          <span><img src="/images/password.png" alt="" /></span>
+          <input type="password" class="form-contro mt-3" name="cpassword" placeholder="CONFIRM PASSWORD"/>
+        </div>
+        <button type="submit" class="btn mt-5 btnpwd" onclick="return validateForm()">CHANGE PASSWORD</button>
+      </form>
+</section>
+
+<script>
+    var passError = document.getElementById('pass-error');
+    var submitError = document.getElementById('submit-error');
+
+    function validatePassword() {
+    var password = document.getElementById('password-email').value;
+
+    if (password.length == 0) {
+      passError.innerHTML = "PASSWORD REQUERED";
+      return false;
+    }
+    if (!password.match(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/)) {
+      passError.innerHTML = " MINIMUM EIGHT CHARACTERS, AT LEAST ONE LETTER AND ONE NUMBER";
+      return false;
+
+    }
+    passError.innerHTML = '<i class="bi bi-check-all"></i>';
+    return true;
+
+  }
+
+  function validateForm() {
+    if (!validatePassword() ) {
+      submitError.style.display = "block";
+      submitError.innerHTML = 'PLEASE FILL THE FORM';
+      setTimeout(function () { submitError.style.display = "none"; }, 3000);
+      return false;
+    }
+
+
+  }
+
+</script>

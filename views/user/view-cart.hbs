@@ -1,0 +1,104 @@
+<section class="">
+  <div class="container ">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col">
+         <div class="card mb-5 mt-5">
+          <div class="card-body p-4">
+
+            {{#if value}}
+             <div class=" text-center main1-3">
+              <span class="span1 text-dark">YOUR</span>
+                       <span class="span2">CART IS EMPTY</span>
+                       
+                   </div>
+            {{else}}
+            <div class=" text-center main1-3">
+                       <span class="span1 text-dark">YOUR</span>
+                       <span class="span2">CART</span>
+                   </div>
+            {{/if}}
+
+          </div>
+        </div>
+        <div class="card mb-4">
+          <div class="card-body p-4">
+            <div class="row align-items-center">
+
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="color:rgb(255, 8, 251);" scope="col"></th>
+                    <th style="color:rgb(255, 8, 251);" scope="col">NAME</th>
+                    <th style="color:rgb(255, 8, 251);" scope="col">BRAND</th>
+                    <th style="color:rgb(255, 8, 251);" scope="col">PRICE</th>
+                    <th style="color:rgb(255, 8, 251);" scope="col">QUANTITY</th>
+                    <th style="color:rgb(255, 8, 251);" scope="col">OPTIONS</th>
+                  </tr>
+                </thead>
+                <tbody>
+                 
+                  {{#each cart}}
+                  <tr class="">
+                   
+                    <th scope="row"><img src="{{this.product.image.[0]}}" alt="" style="width:200px;"></th>
+                    <td style="color:rgb(255, 8, 251);">{{this.product.productName}}</td>
+                    <td style="color:rgb(236, 11, 187);">{{this.product.brand}}</td>
+                    {{#if this.product.offer}}
+                    <td style="color:rgb(255, 8, 251);"><span class="text-dark" style="text-decoration:line-through;">{{this.product.price}}</span> <span>{{this.product.offer}}% offer apllied</span><br>{{this.product.offerPrice}}</td>
+                    {{else}}
+                    <td style="color:rgb(255, 8, 251);">{{this.product.offerPrice}}</td>
+                    {{/if}}
+                    <td style="color:rgb(3, 3, 3);"><button class="btn btn-dark mx-2"
+                        onclick="changeQuantity('{{this._id}}','{{this.product._id}}','{{this.product.quantity}}','{{user}}',-1)" id="minus{{this.product._id}}">-</button><span
+                        id="{{this.product._id}}">{{this.quantity}}</span><button class=" mx-2 btn btn-dark"
+                        onclick="changeQuantity('{{this._id}}','{{this.product._id}}','{{this.product.quantity}}','{{user}}',1)" id="plus{{this.product._id}}">+</button></td>
+                    <td class="text-uppercase">
+                      <button  onclick="deleteCart('{{this.product._id}}')" class="btn btn-dark">REMOVE</button>
+                    </td>
+                  </tr>
+                  {{/each}}
+                </tbody>
+
+              </table>
+
+            </div>
+
+          </div>
+        </div>
+
+        <div class="card mb-5">
+          <div class="card-body p-4">
+
+            <div class="float-end">
+              <p class="mb-0 me-5 d-flex align-items-center">
+               
+                <span class="small  me-2 text-dark" style="font-size:20px;">Order total:</span> 
+                {{#if value}}
+                <span class="lead fw-normal" id="total" style="font-size:34px;font-style:italic;font-weight:800;">0.00</span>
+                {{else}}
+                <span class="lead fw-normal" id="total" style="font-size:34px;font-style:italic;font-weight:800;">{{total}}</span>
+                {{/if}}
+              </p>
+            </div>
+
+          </div>
+        </div>  
+        <div class="d-flex justify-content-end">
+          {{#if value}}
+           <a href="/"><button type="button"  class="btn btn-light btn-lg me-2">BACK TO SHOPPING</button></a>
+           {{else}}
+            <a href="/cod-check-out"><button type="button"  class="btn btn-light btn-lg me-2">CONTINUE PURCHASE</button></a>
+            {{/if}}
+        </div>
+
+  
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+
+</script>
+
+<div style="height:600px;"></div>

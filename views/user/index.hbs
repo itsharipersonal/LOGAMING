@@ -1,0 +1,221 @@
+<section class="container">
+  <div class="title text-center">
+    <h5 class="bg-success text-white mt-3">{{logout}}</h5>
+  </div>
+</section>
+<section>
+  <div class="container">
+    <div class="mainbg">
+      <img src="/images/bgcover.png" alt="" /><br />
+      <button type="submit" class="btn mt-3">BUILD IT</button>
+    </div>
+    <div class="line-bg d-flex justify-content-center">
+      <img src="/images/line1.png" alt="" />
+    </div>
+    <div class="mainbg-1">
+      <img src="/images/bgcover1.png" alt="" /><br />
+      <button type="submit" class="btn mt-3"><a href="/product-list/63a52ec8b0da6eac70ecd74d"
+          style="text-decoration:none;color:#fff">BUY NOW </a></button>
+    </div>
+  </div>
+</section>
+
+<div class="container line-bg d-flex justify-content-center mt-5">
+  <img src="/images/line1.png" alt="" />
+</div>
+
+<section>
+  <div class="container text-center mt-5">
+    <div class="mainbg">
+      <img src={{bannerImage.first.bannerImage}} alt="" /><br />
+    </div>
+  </div>
+
+</section>
+
+<div class="container line-bg d-flex justify-content-center mt-5">
+  <img src="/images/line1.png" alt="" />
+</div>
+
+
+<section id="category">
+  <div class="container  d-flex justify-content-center mt-5 mainbg-2">
+    <h4>FEATURED CATEGORIES</h4>
+  </div>
+</section>
+<section>
+  <div class="container mt-5">
+    <div class="row">
+      {{#each category}}
+      <div class="col-md-3 mt-3 bg-transparent">
+        <div class="card bg-transparent" style="width: 18rem;">
+          <img class="card-img-top img-thumbnail bg-transparent" src="{{this.image.[0]}}" alt="Card image cap">
+          <div class="card-body text-center cardmain">
+            <h5 class="card-title text-uppercase text-light">{{this.category}}</h5>
+          </div>
+          <div class="d-flex justify-content-center align-items-end mb-3 cardmain">
+
+            <a href="/product-list/{{this._id}}" class="btn ">SHOW MORE</a>
+          </div>
+        </div>
+      </div>
+      {{/each}}
+
+
+
+</section>
+
+
+<div class="container line-bg d-flex justify-content-center mt-5">
+  <img src="/images/line1.png" alt="" />
+</div>
+
+<section>
+  <div class="container text-center mt-5">
+    <div class="mainbg">
+      <img src={{bannerImage.second.bannerImage}} alt="" /><br />
+    </div>
+  </div>
+
+</section>
+
+<div class="container line-bg d-flex justify-content-center mt-5">
+  <img src="/images/line1.png" alt="" />
+</div>
+<section id="category">
+  <div class="container  d-flex justify-content-center mt-5 mainbg-2">
+    <h4>FEATURED PRODUCTS</h4>
+  </div>
+</section>
+
+<section>
+
+  <div class="container mt-5">
+    <div class="row">
+      {{#each products}}
+      <div class="col-md-3 mt-3">
+        <div class="card " style="max-height:600px;">
+          <img class="card-img-top img-thumbnail" src="{{this.image.[0]}}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{this.productName}}</h5>
+            <h6>{{this.brand}}</h6>
+          </div>
+          <div class="d-flex justify-content-end">
+            <h4 style="font-weight:800;font-style:italic;margin-right:5px">&#8377;{{this.offerPrice}}</h4>
+          </div>
+          <div class="d-flex justify-content-center align-items-end mb-2 " id="view-more">
+            <a class="mx-1" href="/product-details/{{this._id}}">SHOW DETAILS</a>
+            <button onclick="addToCart('{{this._id}}') " class="btn addtocart">ADD TO CART</button>
+          </div>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<div class="container line-bg d-flex justify-content-center mt-5">
+  <img src="/images/line1.png" alt="" />
+</div>
+
+<section>
+  <div class="container text-center mt-5">
+    <div class="mainbg">
+      <img src={{bannerImage.third.bannerImage}} alt="" /><br />
+    </div>
+  </div>
+
+</section>
+
+<div class="container line-bg d-flex justify-content-center mt-5">
+  <img src="/images/line1.png" alt="" />
+</div>
+
+<div style="height:300px;"></div>
+
+
+<!-- Footer -->
+<footer class="text-center text-lg-start text-white pt-5" style="background-color: #0d0231">
+
+  <!-- Section: Links  -->
+  <section class="">
+    <div class="container text-center text-md-start mt-5">
+      <!-- Grid row -->
+      <div class="row mt-3">
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4 maincont">
+          <!-- Content -->
+          <a href="" class="maina common">LOG</a>
+          <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #d84dff; height: 2px" />
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold">Marketplace</h6>
+          <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #db4dff; height: 2px" />
+          <p>
+            <a href="#!" class="text-white">Explore</a>
+          </p>
+          <p>
+            <a href="#!" class="text-white">Gaming</a>
+          </p>
+          <p>
+            <a href="#!" class="text-white">Monitor</a>
+          </p>
+          <p>
+            <a href="#!" class="text-white">Power</a>
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold">Company</h6>
+          <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px" />
+          <p>
+            <a href="#!" class="text-white">About Us</a>
+          </p>
+          <p>
+            <a href="#!" class="text-white">Support</a>
+          </p>
+          <p>
+            <a href="#!" class="text-white">Careers</a>
+          </p>
+          <p>
+            <a href="#!" class="text-white">Newsletter</a>
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold">Contact us</h6>
+          <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #7c4dff; height: 2px" />
+          <p><i class="fas fa-home mr-3"></i> New York, NY 10012, US</p>
+          <p><i class="fas fa-envelope mr-3"></i> info@example.com</p>
+          <p><i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
+          <p><i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
+        </div>
+        <!-- Grid column -->
+      </div>
+      <!-- Grid row -->
+    </div>
+  </section>
+  <!-- Section: Links  -->
+
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+    © 2022 Copyright:
+    <a class="text-white" href="">LOG.COM</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->

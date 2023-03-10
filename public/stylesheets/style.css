@@ -1,0 +1,537 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;0,800;0,900;1,400;1,600;1,800;1,900&display=swap");
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: rgb(77, 7, 117);
+  background: radial-gradient(
+    circle,
+    rgba(77, 7, 117, 1) 0%,
+    rgba(37, 19, 55, 1) 35%,
+    rgba(4, 0, 19, 1) 100%
+  );
+  font-family: "Poppins", sans-serif;
+}
+
+/* admin header  start here*/
+.maina {
+  text-decoration: none;
+  /* gradiant */
+  background: #0400ff; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #0400ff,
+    #d91aff
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #0400ff,
+    #d91aff
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+
+  font-weight: 800;
+  font-size: 75px;
+  margin-top: 50px;
+}
+.atag1 {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 400;
+  font-size: 20px;
+  margin-top: 50px;
+}
+.atag2 {
+  margin-left: 30px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  font-size: 20px;
+  margin-top: 50px;
+  padding: 5px;
+  font-style: italic;
+}
+
+.atag2 {
+  transition: 0.8s;
+}
+.main1:hover > :not(:hover) {
+  opacity: 0.4;
+}
+
+.atag2:hover {
+  color: white;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 4px;
+  border-style: solid;
+  border-image: linear-gradient(to right, rgb(213, 6, 220), rgb(14, 11, 184)) 1;
+}
+
+.maina:hover {
+  background: #0400ff; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #0400ff,
+    #d91aff
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #0400ff,
+    #d91aff
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 4px;
+  border-style: solid;
+  border-image: linear-gradient(to right, rgb(213, 6, 220), rgb(14, 11, 184)) 1;
+}
+.atag1-1:hover {
+  color: white;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 4px;
+  border-style: solid;
+  border-image: linear-gradient(to right, rgb(213, 6, 220), rgb(14, 11, 184)) 1;
+}
+
+.common {
+  transition: 0.8s;
+}
+.maincont:hover > :not(:hover) {
+  opacity: 0.4;
+}
+
+input[class="search"] {
+  padding: 0px;
+  width: 500px;
+  border: 4px;
+  border-style: solid;
+  border-image: linear-gradient(to right, rgb(213, 6, 220), rgb(14, 11, 184)) 1;
+  background: rgba(255, 255, 255, 0);
+}
+
+.adiv-1 {
+  text-decoration: none;
+  margin-left: 5px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 400;
+  font-size: 25px;
+  margin-top: 50px;
+}
+/* admin header  ends here*/
+
+/* admin login */
+
+.main1-2 {
+  margin-top: 100px;
+}
+.main1-2 .span1 {
+  font-size: 40px;
+  color: white;
+  font-weight: 800;
+  margin-right: 15px;
+}
+.main1-2 .span2 {
+  font-size: 40px;
+  color: rgb(222, 7, 179);
+  font-weight: 800;
+  margin-right: 15px;
+}
+
+.form-group textarea {
+  width: 500px;
+  padding: 15px;
+  border: 4px;
+  border-style: solid;
+  border-image: linear-gradient(to right, rgb(213, 6, 220), rgb(14, 11, 184)) 1;
+}
+.form-group input {
+  width: 500px;
+  padding: 15px;
+  border: 4px;
+  border-style: solid;
+  border-image: linear-gradient(to right, rgb(213, 6, 220), rgb(14, 11, 184)) 1;
+}
+.form-group select {
+  width: 500px;
+  padding: 15px;
+  border: 4px;
+  border-style: solid;
+  border-image: linear-gradient(to right, rgb(213, 6, 220), rgb(14, 11, 184)) 1;
+}
+.form-group-123 {
+  height: 200px;
+}
+.form-group label {
+  color: #ffffff;
+  font-style: italic;
+  font-weight: 600;
+}
+
+#reg-form button {
+  font-weight: 800;
+  color: #fff;
+  border: 4px;
+  border-style: solid;
+  border-image: linear-gradient(to right, rgb(213, 6, 220), rgb(14, 11, 184)) 1;
+}
+.form-group img {
+  color: #fff;
+  width: 40px;
+}
+
+.main1-3 .span1 {
+  font-size: 30px;
+  color: white;
+  font-weight: 800;
+  margin-right: 15px;
+}
+.main1-3 .span2 {
+  font-size: 30px;
+  color: rgb(222, 7, 179);
+  font-weight: 800;
+  margin-right: 15px;
+}
+
+.line img {
+  width: 8px;
+  height: 500px;
+}
+
+.forgot a {
+  text-decoration: none;
+  /* gradiant */
+  background: #0400ff; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #e600ff,
+    #1a1eff
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #b700ff,
+    #ffffff
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+
+  font-weight: 800;
+  font-size: 20px;
+}
+.forgot {
+  margin-top: 15px;
+}
+.search button {
+  background-color: #f3f3f300;
+  border: none;
+  color: #ffffff;
+  position: relative;
+  right: 35px;
+}
+
+.atag2-1 {
+  margin-left: 30px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  font-size: 20px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  padding: 5px;
+  font-style: italic;
+}
+.atag2-1:hover {
+  color: white;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 4px;
+  border-style: solid;
+  border-image: linear-gradient(to right, rgb(213, 6, 220), rgb(14, 11, 184)) 1;
+}
+
+.atag2-1 {
+  transition: 0.8s;
+}
+.main1-user:hover > :not(:hover) {
+  opacity: 0.4;
+}
+
+/* admin and user login end here */
+
+.line1 img {
+  width: 600px;
+  height: 4px;
+}
+
+.signin img {
+  width: 50px;
+}
+
+div .maina-1 {
+  margin-right: 10px;
+}
+
+.mainbg img {
+  height: 500px;
+}
+
+.mainbg button {
+  padding-left: 35px;
+  padding-right: 35px;
+  font-weight: 800;
+  color: #fff;
+  border: 4px;
+  border-style: solid;
+  border-image: linear-gradient(to right, rgb(213, 6, 220), rgb(14, 11, 184)) 1;
+  position: relative;
+  bottom: 85px;
+  left: 500px;
+}
+.line-bg img {
+  width: 13000px;
+  height: 3px;
+}
+.mainbg-1 button {
+  padding-left: 35px;
+  padding-right: 35px;
+  font-weight: 800;
+  color: #fff;
+  border: 4px;
+  border-style: solid;
+  border-image: linear-gradient(to right, rgb(213, 6, 220), rgb(14, 11, 184)) 1;
+  position: relative;
+  bottom: 85px;
+  left: 720px;
+}
+
+.mainbg-2 h4 {
+  color: #ffffff;
+  font-style: italic;
+  font-weight: 800;
+  border: 4px;
+  border-style: solid;
+  border-image: linear-gradient(to right, rgb(213, 6, 220), rgb(14, 11, 184)) 1;
+  padding: 10px;
+}
+.cardmain h5 {
+  font-style: italic;
+  font-weight: 800;
+}
+.cardmain a {
+  color: #d91aff;
+  font-weight: 800;
+  border: 4px;
+  border-style: solid;
+  border-image: linear-gradient(to right, rgb(213, 6, 220), rgb(14, 11, 184)) 1;
+}
+th {
+  color: #ffffff;
+}
+td {
+  color: #ffffff;
+}
+
+.productheader-1 {
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 34px;
+}
+.productheader-2 {
+  color: #ee04d2;
+  font-weight: 800;
+  font-size: 34px;
+}
+
+#view-more a {
+  text-decoration: none;
+  font-weight: 600;
+  color: black;
+  border: 4px;
+  border-style: solid;
+  border-image: linear-gradient(to right, rgb(213, 6, 220), rgb(14, 11, 184)) 1;
+  padding: 10px;
+}
+
+#addcategory {
+  font-style: italic;
+  font-weight: 800;
+  font-size: 20px;
+  margin-top: 15px;
+  border: 4px;
+  border-style: solid;
+  border-image: linear-gradient(to right, rgb(213, 6, 220), rgb(14, 11, 184)) 1;
+  padding: 10px;
+}
+
+.img-zoom-container {
+  position: relative;
+}
+
+.img-zoom-lens {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  /*set the size of the lens:*/
+  width: 40px;
+  height: 40px;
+}
+
+.img-zoom-result {
+  border: 1px solid #d4d4d4;
+  /*set the size of the result div:*/
+  width: 300px;
+  height: 300px;
+}
+
+.btn-grad {
+  background-image: linear-gradient(
+    to right,
+    #ff00cc 0%,
+    #333399 51%,
+    #ff00cc 100%
+  );
+  margin: 10px;
+  padding: 15px 35px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px rgba(238, 238, 238, 0.159);
+  border-radius: 15px;
+  display: block;
+  border: none;
+}
+
+.btn-grad:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
+.btn-grad a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 20px;
+  font-style: italic;
+  font-weight: 800;
+}
+
+.modal-otp-button a {
+  text-decoration: none;
+  color: #ffffff;
+  font-style: italic;
+  font-weight: 800;
+  font-size: 20px;
+  border: 4px;
+  border-style: solid;
+  border-image: linear-gradient(to right, rgb(213, 6, 220), rgb(14, 11, 184)) 1;
+  padding: 10px;
+}
+.modal-otp-button a:hover {
+  color: #d91aff;
+}
+
+.modal-form a {
+  color: #ee04d2;
+  font-weight: 800;
+  font-style: italic;
+  text-decoration: none;
+  font-size: 20px;
+  border: 4px;
+  border-style: solid;
+  border-image: linear-gradient(to right, rgb(213, 6, 220), rgb(14, 11, 184)) 1;
+  padding: 10px;
+}
+.addtocart {
+  font-weight: 600;
+  border: 4px;
+  border-style: solid;
+  border-image: linear-gradient(to right, rgb(213, 6, 220), rgb(14, 11, 184)) 1;
+  padding: 10px;
+}
+
+.checkout-btn {
+  color: #fff;
+  font-style: italic;
+  width: 500px;
+  font-weight: 800;
+  border: 4px;
+  border-style: solid;
+  border-image: linear-gradient(to right, rgb(213, 6, 220), rgb(14, 11, 184)) 1;
+  padding: 10px;
+}
+.otpBtn {
+  color: #fff;
+  font-style: italic;
+  width: 500px;
+  font-weight: 800;
+  border: 4px;
+  border-style: solid;
+  border-image: linear-gradient(to right, rgb(213, 6, 220), rgb(14, 11, 184)) 1;
+  padding-left: 60px;
+  padding-right: 60px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+input::placeholder {
+  font-weight: 800;
+  font-style: italic;
+}
+.form-group input,select{
+  font-weight: 800;
+  font-style: italic;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+.save-info {
+  color: #fff;
+  font-style: italic;
+  width: 500px;
+  font-weight: 800;
+  border: 4px;
+  border-style: solid;
+  border-image: linear-gradient(to right, rgb(213, 6, 220), rgb(14, 11, 184)) 1;
+}
+
+.btnpwd{
+  padding: 15px;
+  color: #fff;
+  font-style: italic;
+  font-weight: 800;
+  border: 4px;
+  border-style: solid;
+  border-image: linear-gradient(to right, rgb(213, 6, 220), rgb(14, 11, 184)) 1;
+}
+.btnpwd:hover{
+  color: #d91aff;
+}
+
+#image-previews img {
+  width: 100px;
+  height: 100px;
+}
+
+
+.file-drop-area label {
+  display: block;
+  padding: 2em;
+  background: #eee;
+  text-align: center;
+  cursor: pointer;
+}

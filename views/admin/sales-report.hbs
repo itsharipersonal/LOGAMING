@@ -1,0 +1,62 @@
+<section id="invoice">
+<div class=" text-center main1-3">
+  <span class="span1 text-warning">SALES </span>
+  <span class="span2">REPORT</span>
+  <button class="btn btn-warning" id="download-button">DOWNLOAD AS PDF</button>
+</div>
+
+
+    <div class="text-center container">
+  <div class="py-5">
+    <div class="title" id="invoice"> 
+
+
+      <table class="table" id="usersTable">
+        <thead>
+          <tr>
+            <th scope="col" class="text-uppercase text-center"style="font-weight:800;color:rgb(255, 0, 174);">order date</th>
+            <th scope="col" class="text-uppercase text-center"style="font-weight:800;color:rgb(255, 0, 174);">user name</th>
+            <th scope="col" class="text-uppercase text-center"style="font-weight:800;color:rgb(255, 0, 174);">price</th>
+            <th scope="col" class="text-uppercase text-center"style="font-weight:800;color:rgb(255, 0, 174);">address</th>
+            <th scope="col" class="text-uppercase text-center"style="font-weight:800;color:rgb(255, 0, 174);">payment Method</th>
+            <th scope="col" class="text-uppercase text-center"style="font-weight:800;color:rgb(255, 0, 174);">order status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each deliveredReport}}
+          <tr>
+            <td class="text-uppercase text-center" style="font-weight:400;color:rgb(255, 0, 174);">{{this.date}}</td>
+            <td class="text-uppercase text-center" style="font-weight:400;color:rgb(255, 0, 174);font-size:20px">
+              {{this.deliveryDetails.name}}</td>
+            <td class="text-uppercase text-center" style="font-weight:400;color:rgb(255, 0, 174);font-size:20px">RS.
+              {{this.totalAmount}}.00</td>
+            <td class="text-uppercase text-center" style="font-weight:400;color:rgb(255, 0, 174);">{{this.deliveryDetails.address}}</td>
+            <td class="text-uppercase text-center" style="font-weight:400;color:rgb(255, 0, 174);font-size:17px">
+              {{this.paymentMethod}}</td>
+            <td class="text-uppercase text-center" style="font-weight:400;color:rgb(255, 0, 174);font-size:17px">
+              {{this.status}}</td>
+          </tr>
+          {{/each}}
+
+        </tbody>
+      </table>
+
+
+
+    </div>
+  </div>
+</div>
+</section>
+
+  <script>
+			const button = document.getElementById('download-button');
+
+			function generatePDF() {
+				// Choose the element that your content will be rendered to.
+				const element = document.getElementById('invoice');
+				// Choose the element and save the PDF for your user.
+				html2pdf().from(element).save();
+			}
+
+			button.addEventListener('click', generatePDF);
+		</script>

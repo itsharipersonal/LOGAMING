@@ -1,0 +1,42 @@
+<div class=" text-center main1-3">
+  <span class="span1">CATEGORY</span>
+  <span class="span2">VIEW</span>
+</div>
+
+<section class="container text-center mb-5">
+  <button type="submit" class="p-2 w-25 btn text-light" id="addcategory"><a href="/admin/add-category"
+      style="text-decoration: none; color:white">ADD CATEGORY </a></button>
+</section>
+
+
+<section>
+  <div class="container text-center">
+    <table class="table">
+      <thead>
+        <tr>
+
+          <th scope="col" class="">CATEGORY</th>
+          <th scope="col" class="">IMAGE</th>
+          <th scope="col" class="">OPTIONS</th>
+        </tr>
+      </thead>
+      <tbody class="text-center">
+        {{#each category}}
+        <tr class="">
+          <td style="font-size:20px; font-weight:800" class="text-uppercase">{{this.category}}</td>
+          <td class="text-uppercase text-center"><img src="{{this.image.[0]}}" alt="" style="width:100px;" /></td>
+
+          <td><a href="/admin/edit-category/{{this._id}}" class="btn btn-success">Edit</a> <a
+              class="btn btn-danger ms-5"
+              onclick="return confirm('Are you sure you want to delete {{this.name}}') && deleteCategory('{{this._id}}')">Delete</a>
+          </td>
+
+
+
+
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</section>

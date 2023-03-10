@@ -1,0 +1,173 @@
+
+<section class="container text-center mt-5">
+  <a href="/otp-login" class="otpBtn text-uppercase" style="text-decoration:none;">otp login</a>
+</section>
+<div class="text-center center-div" id="login">
+  <div class="container">
+    <div class="title">
+      <h5 class="bg-warning text-white mt-3 ">{{logout}}</h5>
+      <h5 class="bg-danger text-white mt-3 ">{{invalid}}</h5>
+      <h5 class="bg-warning text-dark mt-3 ">{{status}}</h5>
+
+    </div>
+    <div class="container d-flex justify-content-around">
+      <form action="/signin" method="post" class="pt-3" id="reg-form">
+        <div class="d-flex justify-content-center align-items-center main1-3">
+          <span class="span2">USER</span>
+          <span class="span1">LOGIN</span>
+        </div>
+        <div class="form-group">
+          <span><img src="/images/email.png" alt="" /></span>
+          <input type="email" class="" placeholder="EMAIL" name="email" />
+        </div>
+        <div class="form-group">
+          <span><img src="/images/password.png" alt="" /></span>
+          <input type="password" class="form-contro mt-3" name="password" placeholder="PASSWORD" />
+        </div>
+        <button type="submit" class="btn mt-3">SIGN IN</button>
+
+        <div class="forgot">
+          <a href="#">FORGOT PASSWORD ?</a>
+        </div>
+      </form>
+
+
+      <div class="line"><img src="/images/line.png" alt="">
+      </div>
+      {{!-- signup --}}
+
+
+      <form action="/signup" method="post" class="pt-3" id="reg-form">
+        <div class="d-flex justify-content-center align-items-center main1-3">
+          <span class="span1">USER</span>
+          <span class="span2">SIGNUP</span>
+        </div>
+        <div class="form-group">
+          <input type="name" class="form-control" placeholder="FULL NAME" name="name" id="contact-name"
+            onkeyup="validateName()" />
+          <span id="valid-error" class="text-white"></span>
+        </div>
+        <div class="form-group">
+          <input type="phone" class="form-control mt-3" placeholder="PHONE NUMBER" name="phone" id="contact-phone"
+            onkeyup="validatePhone()" />
+          <span id="phone-error" class="text-white"></span>
+        </div>
+        <div class="form-group">
+          <input type="email" class="form-control mt-3" placeholder="EMAIL" name="email" id="contact-email"
+            onkeyup="validateEmail()" />
+          <span id="email-error" class="text-white"></span>
+        </div>
+        <div class="form-group">
+          <input type="password" class="form-control mt-3" name="password" placeholder="PASSWORD" id="password-email"
+            onkeyup="validatePassword()" />
+          <span id="pass-error" class="text-white"></span>
+        </div>
+
+        <span id="submit-error" class="text-white mt-3"></span>
+        <button type="submit" class="btn mt-3" onclick="return validateForm()"> SIGNUP</button><br>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+
+<script>
+  var validError = document.getElementById('valid-error');
+  var emailError = document.getElementById('email-error');
+  var passError = document.getElementById('pass-error');
+  var submitError = document.getElementById('submit-error');
+  var phoneError = document.getElementById('phone-error')
+
+  function validateName() {
+    var name = document.getElementById('contact-name').value;
+
+    if (name.length == 0) {
+      validError.innerHTML = "NMAE IS REQUIRED";
+      return false;
+    }
+    if (!name.match(/^[A-Za-z]*\s{1}[A-Za-z]*$/)) {
+      validError.innerHTML = "ENTER FULL NAME";
+      return false;
+
+    }
+    validError.innerHTML = '<i class="bi bi-check-all"></i>';
+    return true;
+  }
+
+  function validatePhone() {
+    var phone = document.getElementById('contact-phone').value
+
+    if (phone.length == 0) {
+      phoneError.innerHTML = "PHONE NUMBER IS REQUERED";
+      return false;
+    }
+    if (!phone.match(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/)) {
+      phoneError.innerHTML = "ENTER FULL PHONE NUMBER";
+      return false;
+    }
+    phoneError.innerHTML = '<i class="bi bi-check-all"></i>';
+    return true;
+  }
+
+  function validateEmail() {
+    var email = document.getElementById('contact-email').value;
+
+    if (email.length == 0) {
+      emailError.innerHTML = "EMAIL IS REQUERED";
+      return false;
+    }
+    if (!email.match(/^[A-Za-z\._\-[0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)) {
+      emailError.innerHTML = "ENTER FULL EMAIL ADDRESS";
+      return false;
+
+    }
+    emailError.innerHTML = '<i class="bi bi-check-all"></i>';
+    return true;
+
+  }
+
+
+
+  function validatePassword() {
+    var password = document.getElementById('password-email').value;
+
+    if (password.length == 0) {
+      passError.innerHTML = "PASSWORD REQUERED";
+      return false;
+    }
+    if (!password.match(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/)) {
+      passError.innerHTML = " MINIMUM EIGHT CHARACTERS, AT LEAST ONE LETTER AND ONE NUMBER";
+      return false;
+
+    }
+    passError.innerHTML = '<i class="bi bi-check-all"></i>';
+    return true;
+
+  }
+
+  function validateForm() {
+    if (!validateName() || !validateEmail() || !validatePassword() || !validatePhone()) {
+      submitError.style.display = "block";
+      submitError.innerHTML = 'PLEASE FILL THE FORM';
+      setTimeout(function () { submitError.style.display = "none"; }, 3000);
+      return false;
+    }
+
+
+  }
+
+  function validateForm2() {
+    if (!validateEmail() || !validatePassword()) {
+      submitError.style.display = "block";
+      submitError.innerHTML = 'PLEASE FILL THE FORM';
+      setTimeout(function () { submitError.style.display = "none"; }, 3000);
+      return false;
+    }
+
+
+  }
+
+
+</script>

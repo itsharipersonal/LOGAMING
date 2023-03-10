@@ -1,0 +1,337 @@
+<section class="container mt-4">
+    <div class=" text-center main1-3">
+        <span class="span1">CHECK</span>
+        <span class="span2">OUT</span>
+    </div>
+
+</section>
+
+<section>
+    <section class="container d-flex justify-content-center  mt-4 ">
+        <div>
+            <form action="" method="post" class="" id="checkout-form">
+                <div class="form-group">
+                    <label for="name">FULL NAME</label>
+                    <input type="name" class="form-control" placeholder="{{user.name}}" name="name" id="contact-name"
+                        value="{{user.name}}" onkeyup="validateName()" />
+                    <span id="valid-error" class="text-white"></span>
+                </div>
+                <div class="form-group mt-2">
+                    <label for="phone">PHONE NUMBER</label>
+                    <input type="phone" class="form-control " placeholder="{{user.phone}}" name="phone"
+                        value="{{user.phone}}" id="contact-phone" onkeyup="validatePhone()" />
+                    <span id="phone-error" class="text-white"></span>
+                </div>
+                <div class="form-group mt-2">
+                    <label for="address">ADDRESS</label>
+                    <input type="text" class="form-control " value="{{user.defaultAddress.address}}" name="address"
+                        id="contact-address" onkeyup="validateAddress()" />
+                    <span id="address-error" class="text-white"></span>
+                </div>
+                <div class="form-group mt-2">
+                    <label for="country">COUNTRY</label>
+                    <input type="text" class="form-control " value="{{user.defaultAddress.country}}" name="country"
+                        id="contact-address1" onkeyup="validateAddress()" />
+                    <span id="address-error1" class="text-white"></span>
+                </div>
+                <div class="form-group mt-2">
+                    <label for="state">STATE</label>
+                    <input type="text" class="form-control " value="{{user.defaultAddress.state}}" name="state"
+                        id="contact-address2" onkeyup="validateAddress()" />
+                    <span id="address-error2" class="text-white"></span>
+                </div>
+                <div class="form-group mt-2">
+                    <label for="pincode">PIN CODE</label>
+                    <input type="text" class="form-control " value="{{user.defaultAddress.pincode}}" name="pincode"
+                        id="contact-address3" onkeyup="validateAddress()" />
+                    {{#if response.status}}
+                    <input type="hidden" class="form-control " value="{{response.total}}" name="total" />
+                    {{else}}
+                    <input type="hidden" class="form-control " value="{{total}}" name="total" />
+                    {{/if}}
+
+
+
+                    <span id="address-error3" class="text-white"></span>
+                </div>
+                <div class="form-group mb-3 mt-3">
+                    <label for="">SELECT YOUR PAYMENT METHOD</label>
+                </div>
+                <div class="form-check form-switch " id="">
+                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="paymentMethod"
+                        value="cod">
+                    <label class="form-check-label text-light" for="flexSwitchCheckDefault">COD</label>
+                </div>
+                <div class="form-check form-switch " id="">
+                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="paymentMethod"
+                        value="online">
+                    <label class="form-check-label text-light" for="flexSwitchCheckDefault">ONLINE PAYMENT</label>
+                </div>
+                <div class="form-check form-switch " id="">
+                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="paymentMethod"
+                        value="wallet">
+                    <label class="form-check-label text-light" for="flexSwitchCheckDefault">WALLET PAYMENT</label>
+                </div>
+                <input type="hidden" name="userId" value="{{user._id}}">
+
+                <span id="submit-error" class="text-white mt-3"></span>
+                <button type="submit" class="btn mt-3 checkout-btn" onclick="return validateForm()"
+                    id="btn-checkout">CHECK
+                    OUT</button><br>
+            </form>
+        </div>
+        <div class="mt-5" style="margin-left:30px;">
+            <div class="card" style="width:400px;">
+                {{#if response.status}}
+                <div class="card-body">
+                    <h5 class="card-title">Hii {{user.name}} </h5><span
+                        style="font-size:20px; color:rgb(226, 43, 195)">Your Total Amount Is :</span>
+                    <h4 class="text-center" style="text-decoration:line-through;">RS. {{total}}.00</h4>
+                    <span>Coupon Applied You Get {{response.offer}}% off UpTO 2500 :</span><br>
+                    <h4 class="text-center">RS. {{response.total}}.00</h4>
+                </div>
+                {{else}}
+                <div class="card-body">
+                    <h5 class="card-title">Hii {{user.name}} </h5><span
+                        style="font-size:20px; color:rgb(226, 43, 195)">Your Total Amount Is :</span>
+                    <h4 class="text-center">RS. {{total}}.00</h4>
+                </div>
+                {{/if}}
+
+            </div>
+            <div class="card mt-3" style="width:400px;">
+                <div class="card-body text-center">
+                    {{#if response.status}}
+                    <span class="text-center mb-2 text-success">COUPON APPLIED</span>
+                    {{else}}
+                    {{#if response.expire}}
+                    <span class="text-center mb-2 text-danger">COUPON CODE IS NOT AVAILABLE</span><br>
+
+                    {{/if}}
+
+                    <span class="text-uppercase">if you have any coupon add here</span>
+                    <button type="button" class="p-2 w-50 btn text-dark" id="addcategory" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop">ADD COUPON</button>
+                    {{/if}}
+                </div>
+            </div>
+            {{#each address}}
+            <div class="card mt-3" style="width:400px;">
+                <div class="card-body text-center">
+                    <span class="text-center mb-2 text-success">ADDRESS</span><br>
+                    <h6 class="card-title text-center text-dark text-uppercase" style="font-weight:800;font-size:20px;">
+                        {{this.address}}</h6>
+                    <h6 class="card-title text-center text-dark text-uppercase" style="font-weight:800;font-size:20px;">
+                        {{this.state}}</h6>
+                    <h6 class="card-title text-center text-dark text-uppercase" style="font-weight:800;font-size:20px;">
+                        {{this.country}}</h6>
+                    <h6 class="card-title text-center text-dark text-uppercase" style="font-weight:800;font-size:20px;">
+                        {{this.pincode}}</h6>
+                    <button class="btn btn-danger" id="" onclick="makeAddressDefault('{{this.id}}')">CHOOSE
+                        THIS</button>
+                </div>
+            </div>
+            {{/each}}
+            
+            <div class="card mt-3" style="width:400px;">
+                <div class="card-body text-center">
+                    <button type="button" class="btn btn-primary mb-1" id="" data-bs-toggle="modal"
+                data-bs-target="#addressNew">ADD NEW ADDRESS</button>
+                </div>
+            </div>
+        </div>
+        </div>
+
+    </section>
+
+</section>
+<div style="height:600px;"></div>
+<section class="container">
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <form action="/grabCoupon" method="post"
+                        class="pt-3 d-flex flex-column justify-content-center align-items-center">
+                        <div class="d-flex justify-content-center align-items-center main1-3">
+                            <span class="span2">ADD COUPON GRAB THE OFFER</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="name" class="mt-3 text-dark">HII {{user.name}} Don't Wait Grab The Offer
+                                Now</label>
+                            <input type="hidden" class="form-control " value="{{user._id}}" name="userId" id="" />
+                        </div>
+                        <div class="form-group text-center">
+                            <label for="name" class="mt-3 text-dark ">PLEASE ENTER COUPON CODE</label>
+                            <input type="text" class="form-control " value="" name="couponCode" id="" />
+                        </div>
+                        <div class="form-group text-center">
+                            <input type="hidden" class="form-control " value="{{total}}" name="total" id="" />
+                        </div>
+
+                        <span id="submit-error" class="text-white mt-3"></span>
+                        <button type="submit" class="btn mt-3 save-info text-dark ">GRAB THE OFFER</button><br>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+<section class="container">
+  <!-- Modal -->
+  <div class="modal fade" id="addressNew" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-body">
+          <form action="" method="post"
+            class="pt-3 d-flex flex-column justify-content-center align-items-center" id="addNewAddress">
+            <div class="d-flex justify-content-center align-items-center main1-3">
+              <span class="span2">ADD NEW ADDRESS</span>
+            </div>
+            <div class="form-group">
+              <input type="hidden" class="form-control" value="{{user._id}}" name="userId" />
+            </div>
+            <div class="form-group">
+              <label for="name" class="mt-3 text-dark">FULL NAME</label>
+              <input type="name" class="form-control" value="{{user.name}}" name="name" />
+            </div>
+            <div class="form-group">
+              <label for="name" class="mt-3 text-dark">ADDRESS</label>
+              <input type="text" class="form-control " value="{{user.address.[0].address}}" name="address" />
+            </div>
+            <div class="form-group">
+              <label for="name" class="mt-3 text-dark">COUNTRY</label>
+              <input type="text" class="form-control " value="{{user.address.[0].country}}" name="country" />
+            </div>
+            <div class="form-group">
+              <label for="name" class="mt-3 text-dark">STATE</label>
+              <input type="text" class="form-control " value="{{user.address.[0].state}}" name="state" />
+            </div>
+            <div class="form-group">
+              <label for="name" class="mt-3 text-dark ">PINCODE</label>
+              <input type="number" class="form-control " value="{{user.address.[0].pincode}}" name="pincode" />
+            </div>
+            <button type="submit" class="btn mt-3 save-info text-dark" data-bs-dismiss="modal">SAVE
+              INFO</button><br>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<script>
+    var validError = document.getElementById('valid-error');
+    var addressError = document.getElementById('address-error');
+    var addressError1 = document.getElementById('address-error1');
+    var addressError2 = document.getElementById('address-error2');
+    var addressError3 = document.getElementById('address-error3');
+    var submitError = document.getElementById('submit-error');
+    var phoneError = document.getElementById('phone-error')
+
+    function validateName() {
+        var name = document.getElementById('contact-name').value;
+
+        if (name.length == 0) {
+            validError.innerHTML = "NMAE IS REQUIRED";
+            return false;
+        }
+        if (!name.match(/^[A-Za-z]*\s{1}[A-Za-z]*$/)) {
+            validError.innerHTML = "ENTER FULL NAME";
+            return false;
+
+        }
+        validError.innerHTML = '<i class="bi bi-check-all"></i>';
+        return true;
+    }
+
+    function validatePhone() {
+        var phone = document.getElementById('contact-phone').value
+
+        if (phone.length == 0) {
+            phoneError.innerHTML = "PHONE NUMBER IS REQUERED";
+            return false;
+        }
+        if (!phone.match(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/)) {
+            phoneError.innerHTML = "ENTER FULL PHONE NUMBER";
+            return false;
+        }
+        phoneError.innerHTML = '<i class="bi bi-check-all"></i>';
+        return true;
+    }
+
+    function validateAddress() {
+        var address = document.getElementById('contact-address').value;
+
+        if (address.length == 0) {
+            addressError.innerHTML = "ADDRESS IS REQUERED";
+            return false;
+        }
+        addressError.innerHTML = '<i class="bi bi-check-all"></i>';
+        return true;
+
+    }
+    function validateAddress1() {
+        var address = document.getElementById('contact-address1').value;
+
+        if (address.length == 0) {
+            addressError1.innerHTML = "COUNTRY IS REQUERED";
+            return false;
+        }
+        addressError1.innerHTML = '<i class="bi bi-check-all"></i>';
+        return true;
+
+    }
+    function validateAddress2() {
+        var address = document.getElementById('contact-address2').value;
+
+        if (address.length == 0) {
+            addressError2.innerHTML = "STATE IS REQUERED";
+            return false;
+        }
+        addressError2.innerHTML = '<i class="bi bi-check-all"></i>';
+        return true;
+
+    }
+    function validateAddress3() {
+        var address = document.getElementById('contact-address3').value;
+
+        if (address.length == 0) {
+            addressError3.innerHTML = "PIN CODE IS REQUERED";
+            return false;
+        }
+        addressError3.innerHTML = '<i class="bi bi-check-all"></i>';
+        return true;
+
+    }
+
+
+    function validateForm() {
+        if (!validateName() || !validateAddress() || !validateAddress1() || !validateAddress2() || !validateAddress3() || !validatePhone()) {
+            submitError.style.display = "block";
+            submitError.innerHTML = 'PLEASE FILL THE FORM';
+            setTimeout(function () { submitError.style.display = "none"; }, 3000);
+            return false;
+        }
+
+
+    }
+</script>

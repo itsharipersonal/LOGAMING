@@ -1,0 +1,64 @@
+<section class="mt-5">
+    <div class="container d-flex justify-content-center align-items-center">
+        <div><img src="{{product.image.[0]}}" alt="" id="product-image" class="main-image" /><br />
+            <img onclick="change_image(this)" src="{{product.image.[0]}}" alt="" style="width:100px;" />
+        <img onclick="change_image(this)" src="{{product.image.[1]}}" alt="" style="width:100px;" />
+            <img onclick="change_image(this)" src="{{product.image.[2]}}" alt="" style="width:100px;" />
+            <img onclick="change_image(this)" src="{{product.image.[3]}}" alt="" style="width:100px;" />
+
+        </div>
+
+        <div class="main1-3">
+            <h1 class="text-uppercase span1 mb-2">{{product.productName}}</h1>
+           
+            {{#if product.offer}}
+             <h1 class="text-uppercase span1 mt-5" style="text-decoration:line-through;">RS. {{product.price}}.00</h1><span class="text-light" style="font-weight:800;font-size:24px;">{{product.offer}}% </span><span class="text-light" style="font-weight:600;">OFFER AVAILABLE GRAB IT NOW</span><br>
+             <h1 class="text-uppercase span1">RS. {{product.offerPrice}}.00</h1>
+            {{else}}
+            <h1 class="text-uppercase span1 mt-5">RS. {{product.offerPrice}}.00</h1>
+            {{/if}}
+
+            <button onclick="addToCart('{{product._id}}') "class="btn addtocart text-light mt-3">ADD TO CART</button><br>
+            <button onclick="addToWish('{{product._id}}') "class="btn addtocart text-light mt-3" id="wishbtn">ADD TO WISH</button>
+            <button onclick="deleteWish('{{this.product._id}}')"
+                                                class="btn  addtocart text-light mt-3" id="dltbtnwish" style="visibility:hidden">REMOVE FROM WISH</button>
+            <h1 class="text-uppercase span1"></h1>
+        </div>
+    </div>
+</section>
+
+<section class="mt-5">
+    <div class="container d-flex justify-content-center align-items-center">
+        <button class="p-2 w-25 btn text-light mx-5" id="addcategory">ALL OVER INDIA
+            SHIPPING</button>
+        <button class="p-2 w-25 btn text-light mx-5" id="addcategory">COMPETITIVE
+            PRICING</button>
+        <button class="p-2 w-25 btn text-light mx-5" id="addcategory">EXPERTS IN PC
+            BUILDING</button>
+    </div>
+
+</section>
+
+<section class="mt-5">
+    <div class="container d-flex justify-content-center align-items-center main1-3">
+        <div>
+            <h2 class="span1 mt-5">PRODUCT DESCRIPTION</h2>
+        </div>
+    </div>
+    <div class="container d-flex justify-content-center align-items-center main1-3">
+        <div class="mx-5">
+            <h4 class="span1" style="font-size:22px;"> DESCRIPTION</h4>
+            <p style="color:white;">{{product.description}}</p>
+        </div>
+        <div class="mx-5">
+            <h4 class="span1" style="font-size:22px;"> FEATURES</h4>
+            <p style="color:white;">{{product.features}}</p>
+        </div>
+
+    </div>
+
+</section>
+
+<script>
+    
+</script>

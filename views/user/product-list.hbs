@@ -1,0 +1,32 @@
+<section>
+    <div class="container  d-flex justify-content-center mt-5 mainbg-2">
+        <span class="productheader-1 text-uppercase">{{category.category}}</span>
+    </div>
+</section>
+
+<section>
+    <div class="container mt-5">
+        <div class="row">
+            {{#each products}}
+            <div class="col-md-3 mt-3">
+                <div class="card" style="max-height:600px;">
+                    <img class="card-img-top img-thumbnail" src="{{this.image.[0]}}" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">{{this.productName}}</h5>
+                        <h6>{{this.brand}}</h6>
+                    </div>
+                    <div class="d-flex justify-content-end">
+                        <h4 style="font-weight:800;font-style:italic;margin-right:5px">&#8377;{{this.offerPrice}}</h4>
+                    </div>
+                    <div class="d-flex justify-content-center align-items-end mb-2 " id="view-more">
+                        <a class="mx-1" href="/product-details/{{this._id}}">SHOW DETAILS</a>
+                        <button onclick="addToCart('{{this._id}}') " class="btn addtocart">ADD TO CART</button>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</section>
+
+<div style="height:500px;"></div>

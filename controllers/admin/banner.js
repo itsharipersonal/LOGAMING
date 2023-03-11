@@ -20,7 +20,7 @@ module.exports = {
         try {
             let bannerData = await bannerHelper.getImageBanner()
             let userBanner = await bannerHelper.userBanner()
-            res.render('admin/banner',{ bannerData,userBanner})
+            res.render('admin/banner',{ bannerData,userBanner,admin: true})
         } catch (err) {
             console.log(err);
             res.status(404).render('404')

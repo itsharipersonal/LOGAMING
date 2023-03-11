@@ -13,9 +13,9 @@
            
             {{#if product.offer}}
              <h1 class="text-uppercase span1 mt-5" style="text-decoration:line-through;">RS. {{product.price}}.00</h1><span class="text-light" style="font-weight:800;font-size:24px;">{{product.offer}}% </span><span class="text-light" style="font-weight:600;">OFFER AVAILABLE GRAB IT NOW</span><br>
-             <h1 class="text-uppercase span1">RS. {{product.offerPrice}}.00</h1>
+             <h1 class="text-uppercase span1">RS. {{product.offerPrice}}</h1>
             {{else}}
-            <h1 class="text-uppercase span1 mt-5">RS. {{product.offerPrice}}.00</h1>
+            <h1 class="text-uppercase span1 mt-5">RS. {{product.offerPrice}}</h1>
             {{/if}}
 
             <button onclick="addToCart('{{product._id}}') "class="btn addtocart text-light mt-3">ADD TO CART</button><br>

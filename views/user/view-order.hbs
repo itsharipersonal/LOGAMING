@@ -5,11 +5,11 @@
 </section>
 
 <section>
-    <div class="container">
-       <div class="">
-        <h3 class="text-light">Order ID : <span style="font-size:20px">{{orders._id}}</span></h3>
-        <h6 class="text-light">Order Date : <span style="font-size:14px">{{orders.date}}</h6>
-       </div>
+    <div class="container text-center">
+        <div class="">
+            <h3 class="text-light">Order ID : <span style="font-size:20px">{{orders._id}}</span></h3>
+            <h6 class="text-light">Order Date : <span style="font-size:14px">{{orders.date}}</h6>
+        </div>
     </div>
 </section>
 
@@ -37,11 +37,35 @@
 </section>
 
 <section>
-    <div class="container">
-       <div class="">
-        <h3 class="text-light">Order ID : <span style="font-size:20px">{{orders._id}}</span></h3>
-        <h6 class="text-light">Order Date : <span style="font-size:14px">{{orders.date}}</h6>
-       </div>
+    <div class="container mt-5">
+        <div class="d-flex justify-content-center">
+            <div class="mx-5" style="">
+                <h3 class="text-light">Delivery Address : <span style="font-size:20px font-weight:800"
+                        class="text-uppercase"></span></h3>
+                <h6 class="text-light" style="font-size:20px"><span style="font-size:18px; font-weight:800">
+                        {{orders.deliveryDetails.name}}</h6>
+                <h6 class="text-light" style="font-size:20px"><span style="font-size:18px; font-weight:800">
+                        {{orders.deliveryDetails.phone}}</h6>
+                <h6 class="text-light" style="font-size:20px"><span style="font-size:18px; font-weight:800">
+                        {{orders.deliveryDetails.address}}</h6>
+                <h6 class="text-light" style="font-size:20px"><span style="font-size:18px; font-weight:800">
+                        {{orders.deliveryDetails.state}}</h6>
+                <h6 class="text-light" style="font-size:20px"><span style="font-size:18px; font-weight:800">
+                        {{orders.deliveryDetails.country}}</h6>
+                <h6 class="text-light" style="font-size:20px"><span style="font-size:18px; font-weight:800">
+                        {{orders.deliveryDetails.pincode}}</h6>
+            </div>
+            <div class="">
+                <h3 class="text-light">Order Summary : <span style="font-size:20px font-weight:800"
+                        class="text-uppercase"></span></h3>
+                <h6 class="text-light" style="font-size:20px">Payment Method : <span class="text-uppercase"
+                        style="font-size:18px; font-weight:800">{{orders.paymentMethod}}</span></h6>
+                <h6 class="text-light" style="font-size:18px">Sub Total : <span class="text-uppercase"
+                        style="font-size:18px; font-weight:800">{{orders.totalAmount}}</span></h6>
+            </div>
+        </div>
+
+
     </div>
 </section>
 

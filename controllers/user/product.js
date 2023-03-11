@@ -14,9 +14,21 @@ module.exports = {
       }
     });
   },
-  productDetails: async (req, res,next) => {
+  productDetails: async (req, res, next) => {
     try {
       let product = await productHelper.getProductDetails(req.params.id);
+
+      function formatCurrencyINR(amount) {
+        return new Intl.NumberFormat('en-IN', {
+          style: 'currency',
+          currency: 'INR'
+        }).format(amount);
+      }
+      const price = product.offerPrice
+      const formattedPrice = formatCurrencyINR(price);
+      console.log(formattedPrice); // "₹199.99"   
+      product.offerPrice = formattedPrice
+      
       if (req.session.userLoggedIn) {
         let cartCount = await productHelper.cartCount(req.session.user._id)
         res.render("user/product-details", { usersi: true, product, cartCount });
@@ -28,7 +40,7 @@ module.exports = {
       res.status(404).render('404')
     }
   }
-  
+
   ,
   addToCart: (req, res) => {
     productHelper.addToCart(req.params.id, req.session.user._id).then(() => {
@@ -40,6 +52,18 @@ module.exports = {
       let cart = await productHelper.getUserCartProducts(req.session.user._id)
       let total = await productHelper.getTotalAmount(req.session.user._id)
       let user = req.session.user._id
+
+      function formatCurrencyINR(amount) {
+        return new Intl.NumberFormat('en-IN', {
+          style: 'currency',
+          currency: 'INR'
+        }).format(amount);
+      }
+      const price = total
+      const formattedPrice = formatCurrencyINR(price);
+      console.log(formattedPrice); // "₹199.99"   
+      total = formattedPrice
+
       if (total.status) {
         res.render('user/view-cart', { usersi: true, cart, user, value: true })
       }
@@ -70,16 +94,28 @@ module.exports = {
     let cartCount = await productHelper.getTotalAmount(req.session.user._id)
     let user = await productHelper.getUserDetails(req.session.user._id)
     let address = await userHelper.getUserAddress(req.session.user._id)
+
+    function formatCurrencyINR(amount) {
+      return new Intl.NumberFormat('en-IN', {
+        style: 'currency',
+        currency: 'INR'
+      }).format(amount);
+    }
+    const price = total
+    const formattedPrice = formatCurrencyINR(price);
+    console.log(formattedPrice); // "₹199.99"   
+    total = formattedPrice
+
     if (cartCount.status) {
       res.redirect('/')
     } else {
-      res.render('user/cod-check-out', { usersi: true, user, total,address})
+      res.render('user/cod-check-out', { usersi: true, user, total, address })
     }
   },
   placeOrder: async (req, res) => {
     let products = await productHelper.getCartProductList(req.body.userId)
     let wallet = await userHelper.getUserDetails(req.body.userId)
-    productHelper.placeOrder(req.body,products,wallet).then((response) => {
+    productHelper.placeOrder(req.body, products, wallet).then((response) => {
       if (req.body['paymentMethod'] == 'cod') {
         res.json({ cod: true })
       }
@@ -89,12 +125,12 @@ module.exports = {
           res.json({ response })
         })
       }
-      else if(req.body['paymentMethod'] == 'noBal'){
-        orderhelper.deleteOrder().then(()=>{
-          res.json({noBal:true})
+      else if (req.body['paymentMethod'] == 'noBal') {
+        orderhelper.deleteOrder().then(() => {
+          res.json({ noBal: true })
         })
       }
-      else if(req.body['paymentMethod'] == 'wallet'){
+      else if (req.body['paymentMethod'] == 'wallet') {
         res.json({ cod: true })
       }
       else {
@@ -134,6 +170,18 @@ module.exports = {
     productHelper.applyCoupon(req.body).then(async (response) => {
       let total = await productHelper.getTotalAmount(req.session.user._id)
       let user = await productHelper.getUserDetails(req.session.user._id)
+
+      function formatCurrencyINR(amount) {
+        return new Intl.NumberFormat('en-IN', {
+          style: 'currency',
+          currency: 'INR'
+        }).format(amount);
+      }
+      const price = response.total
+      const formattedPrice = formatCurrencyINR(price);
+      console.log(formattedPrice); // "₹199.99"   
+      response.total = formattedPrice
+
       res.render('user/cod-check-out', { total, user, response, usersi: true })
     })
   }

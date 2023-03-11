@@ -18,8 +18,13 @@ var adminRouter = require('./routes/admin');
 
 var app = express();
 
-//paypal
 
+//express session
+app.use(session({
+  secret: 'my-secret-key',
+  resave: false,
+  saveUninitialized: false
+}));
 
 
 // view engine setup

@@ -1,4 +1,5 @@
 const orderHelpers = require('../../models/admin/order')
+const orderHelper = require('../../models/user/order')
 
 
 module.exports = {
@@ -7,8 +8,20 @@ module.exports = {
         res.render('admin/orders', { orders, admin: true })
     },
     getOrderProduct: async (req, res) => {
+        let orders = await orderHelper.getUserOrder(req.params.id)
         let products = await orderHelpers.getOrderProduct(req.params.id)
-        res.render('admin/view-order', { products, admin: true })
+        function formatCurrencyINR(amount) {
+            return new Intl.NumberFormat('en-IN', {
+              style: 'currency',
+              currency: 'INR'
+            }).format(amount);
+          }
+          const price = orders.totalAmount
+          const formattedPrice = formatCurrencyINR(price);
+          console.log(formattedPrice); // "₹199.99"   
+          orders.totalAmount = formattedPrice
+          
+        res.render('admin/view-order', { products,admin:true,orders})
     },
     returnOrder: (req, res) => {
         orderHelpers.returnOrderRecieved(req.params.id).then(() => {

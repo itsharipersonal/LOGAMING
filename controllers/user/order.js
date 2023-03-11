@@ -11,6 +11,18 @@ module.exports = {
             let orders = await orderHelper.getUserOrder(req.params.id)
             let products = await orderHelper.getOrderProduct(req.params.id)
             let cartCount = await orderHelper.cartCount(req.session.user._id)
+
+            function formatCurrencyINR(amount) {
+                return new Intl.NumberFormat('en-IN', {
+                  style: 'currency',
+                  currency: 'INR'
+                }).format(amount);
+              }
+              const price = orders.totalAmount
+              const formattedPrice = formatCurrencyINR(price);
+              console.log(formattedPrice); // "₹199.99"   
+              orders.totalAmount = formattedPrice
+
             res.render('user/view-order', { products,orders, usersi: true, cartCount })
         } catch (err) {
             res.render('404')

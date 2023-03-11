@@ -23,6 +23,24 @@ module.exports = {
         if (req.session.adminLoggedIn) {
             let totalAmount = await dashBoard.getTotalAmount()
             let data = await dashBoard.dashBoard()
+            console.log(totalAmount);
+            function formatCurrencyINR(amount) {
+                return new Intl.NumberFormat('en-IN', {
+                  style: 'currency',
+                  currency: 'INR'
+                }).format(amount);
+              }
+              const total = totalAmount.total[0].totalAmount
+              const cod = totalAmount.cod[0].totalAmount
+              const online = totalAmount.online[0].totalAmount
+              
+              const total1 = formatCurrencyINR(total);
+              const cod1 = formatCurrencyINR(cod);
+              const online1 = formatCurrencyINR(online);
+
+              totalAmount.total[0].totalAmount = total1
+              totalAmount.cod[0].totalAmount = cod1
+              totalAmount.online[0].totalAmount = online1
             res.render('admin/admin-land', { admin: true, totalAmount, data})
         }
     }

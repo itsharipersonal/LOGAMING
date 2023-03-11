@@ -1,4 +1,4 @@
-<section>
+{{!-- <section>
     <div class="container  d-flex justify-content-center mt-5 mainbg-2">
         <span class="productheader-1 text-uppercase">{{category.category}}</span>
     </div>
@@ -24,4 +24,95 @@
     </div>
 </section>
 
+<div style="height:500px;"></div> --}}
+
+
+<section>
+    <div class="container  d-flex justify-content-center mt-5 mainbg-2">
+        <span class="productheader-1 text-uppercase">{{category.category}}</span>
+    </div>
+</section>
+
+<section>
+    <div class="container text-center">
+        <div class="">
+            <h3 class="text-light">Order ID : <span style="font-size:20px">{{orders._id}}</span></h3>
+            <h6 class="text-light">Order Date : <span style="font-size:14px">{{orders.date}}</h6>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container mt-5">
+        <div class="row">
+            {{#each products}}
+            <div class="col-md-3 mt-3">
+                <div class="card" style="max-height:600px;">
+                    <img class="card-img-top img-thumbnail" src="{{this.product.image.[0]}}" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">{{this.product.productName}}</h5>
+                        <h6>{{this.brand}}</h6>
+
+                    </div>
+                    <div class="d-flex justify-content-center align-items-end mb-2 " id="view-more">
+                        <a class="mx-1" href="/product-details/{{this.product._id}}">SHOW DETAILS</a>
+                        <button onclick="addToCart('{{this.product._id}}') " class="btn addtocart">ORDER AGAIN</button>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container mt-5">
+        <div class="d-flex justify-content-center">
+            <div class="mx-5" style="">
+                <h3 class="text-light">Delivery Address : <span style="font-size:20px font-weight:800"
+                        class="text-uppercase"></span></h3>
+                <h6 class="text-light" style="font-size:20px"><span style="font-size:18px; font-weight:800">
+                        {{orders.deliveryDetails.name}}</h6>
+                <h6 class="text-light" style="font-size:20px"><span style="font-size:18px; font-weight:800">
+                        {{orders.deliveryDetails.phone}}</h6>
+                <h6 class="text-light" style="font-size:20px"><span style="font-size:18px; font-weight:800">
+                        {{orders.deliveryDetails.address}}</h6>
+                <h6 class="text-light" style="font-size:20px"><span style="font-size:18px; font-weight:800">
+                        {{orders.deliveryDetails.state}}</h6>
+                <h6 class="text-light" style="font-size:20px"><span style="font-size:18px; font-weight:800">
+                        {{orders.deliveryDetails.country}}</h6>
+                <h6 class="text-light" style="font-size:20px"><span style="font-size:18px; font-weight:800">
+                        {{orders.deliveryDetails.pincode}}</h6>
+            </div>
+            <div class="">
+                <h3 class="text-light">Order Summary : <span style="font-size:20px font-weight:800"
+                        class="text-uppercase"></span></h3>
+                <h6 class="text-light" style="font-size:20px">Payment Method : <span class="text-uppercase"
+                        style="font-size:18px; font-weight:800">{{orders.paymentMethod}}</span></h6>
+                <h6 class="text-light" style="font-size:18px">Sub Total : <span class="text-uppercase"
+                        style="font-size:18px; font-weight:800">{{orders.totalAmount}}</span></h6>
+            </div>
+        </div>
+
+
+    </div>
+</section>
+
 <div style="height:500px;"></div>
+
+
+{{!-- deliveryDetails: {
+name: 'Hari krishnan',
+phone: '8921618825',
+address: 'dsf',
+country: 'dwf',
+state: 'fwgrhtejyrt',
+pincode: '2435674'
+},
+userId: new ObjectId("6398150714f6584b8528c2bf"),
+paymentMethod: 'cod',
+products: [ { item: new ObjectId("639c21636678c2eb87718805"), quantity: 1 } ],
+totalAmount: 79000,
+status: 'placed',
+date: 2022-12-21T10:43:43.179Z
+} --}}

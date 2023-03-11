@@ -318,6 +318,12 @@ module.exports = {
       } else {
         order.paymentMethod = null;
       }
+
+      const formattedPrice = order.total
+      const numericPrice = parseFloat(formattedPrice.replace(/[^\d.-]/g, ""));
+      console.log(numericPrice); // 199.99
+      order.total = numericPrice
+
       let oderObj = {
         deliveryDetails: {
           name: order.name,
@@ -335,6 +341,7 @@ module.exports = {
         date: new Date(),
         btn: true,
       };
+      console.log(oderObj);
       if (oderObj.paymentMethod === "cod") {
         db.get()
           .collection(collection.ORDER_COLLLECTION)

@@ -9,6 +9,8 @@ module.exports = {
   getOrderProduct: async (req, res) => {
     let orders = await orderHelper.getUserOrder(req.params.id);
     let products = await orderHelpers.getOrderProduct(req.params.id);
+    console.log(orders.totalAmountrs);
+
     function formatCurrencyINR(amount) {
       return new Intl.NumberFormat("en-IN", {
         style: "currency",

@@ -42,7 +42,7 @@
     </div>
 </section>
 
-<section>
+{{!-- <section>
     <div class="container mt-5">
         <div class="row">
             {{#each products}}
@@ -63,7 +63,39 @@
             {{/each}}
         </div>
     </div>
+</section> --}}
+
+<section>
+
+    <div class="container">
+        <div class="row">
+            {{#each products}}
+            <div class="d-flex mt-5 col-md-6 ">
+                <div class="mx-5">
+                    <img class="card-img-top img-thumbnail" src="{{this.product.image.[0]}}" alt="Card image cap"
+                        style="height:200px; width:200px">
+                </div>
+                <div>
+                    <h3 class="text-light">Product Details : <span style="font-size:20px font-weight:800"
+                            class="text-uppercase"></span></h3>
+                    <h6 class="text-light" style="font-size:20px">Name : <span style="font-size:18px; font-weight:800">
+                            {{this.product.productName}}</h6>
+                    <h6 class="text-light" style="font-size:20px">Price : <span style="font-size:18px; font-weight:800">
+                            {{this.product.offerPrice}}</h6>
+                    <h6 class="text-light" style="font-size:20px">Brand : <span style="font-size:18px; font-weight:800">
+                            {{this.product.brand}}</h6>
+                    <h6 class="text-light" style="font-size:20px">quantity : <span
+                            style="font-size:18px; font-weight:800">
+                            {{this.quantity}}</h6>
+
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+
 </section>
+
 
 <section>
     <div class="container mt-5">

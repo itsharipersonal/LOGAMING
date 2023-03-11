@@ -87,79 +87,218 @@ function addToWish(proId) {
     })
 }
 
+// function deleteWish(prodId) {
+
+//     $.ajax({
+//         url: '/delete-wishProduct/' + prodId,
+//         method: 'delete',
+//         success: (response) => {
+//             if (response) {
+
+//                 location.reload()
+//             }
+//         }
+//     })
+// }
+
 function deleteWish(prodId) {
 
-    $.ajax({
-        url: '/delete-wishProduct/' + prodId,
-        method: 'delete',
-        success: (response) => {
-            if (response) {
-
-                location.reload()
-            }
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                url: '/delete-wishProduct/' + prodId,
+                method: 'delete',
+                success: (response) => {
+                    if (response) {
+                        Swal.fire(
+                            'Deleted!',
+                            'Your file has been deleted.',
+                            'success'
+                        )
+                        location.reload()
+                    }
+                }
+            })
         }
     })
 }
+
+
+// function deleteProdOffer(proId) {
+//     $.ajax({
+//         url: '/admin/delete-prod-offer/' + proId,
+//         method: 'delete',
+//         success: (response) => {
+//             if (response.status) {
+//                 swal({
+//                     title: "Delete the Offer!!!",
+//                     type: 'success',
+//                     timer: 500
+//                 });
+//                 location.reload()
+//             }
+//             else {
+//                 alert('dfghj')
+//             }
+//         }
+//     })
+// }
 
 function deleteProdOffer(proId) {
-    $.ajax({
-        url: '/admin/delete-prod-offer/' + proId,
-        method: 'delete',
-        success: (response) => {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'You will not be able to recover this offer!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, delete it!',
+      cancelButtonText: 'No, cancel!',
+      reverseButtons: true
+    }).then((result) => {
+      if (result.isConfirmed) {
+        $.ajax({
+          url: '/admin/delete-prod-offer/' + proId,
+          method: 'delete',
+          success: (response) => {
             if (response.status) {
-                swal({
-                    title: "Delete the Offer!!!",
-                    type: 'success',
-                    timer: 500
-                });
-                location.reload()
+              Swal.fire({
+                title: 'Deleted!',
+                text: 'The offer has been deleted.',
+                icon: 'success',
+                timer: 500
+              });
+              location.reload()
             }
             else {
-                alert('dfghj')
+              alert('dfghj')
             }
-        }
+          }
+        })
+      }
     })
-}
+  }
+  
+// function deleteCatOffer(proId) {
+//     $.ajax({
+//         url: '/admin/delete-cat-offer/' + proId,
+//         method: 'delete',
+//         success: (response) => {
+//             if (response.status) {
+//                 swal({
+//                     title: "Delete the Offer!!!",
+//                     type: 'success',
+//                     timer: 500
+//                 });
+//                 location.reload()
+//             }
+//             else {
+//                 alert('dfghj')
+//             }
+//         }
+//     })
+// }
+
 function deleteCatOffer(proId) {
-    $.ajax({
-        url: '/admin/delete-cat-offer/' + proId,
-        method: 'delete',
-        success: (response) => {
-            if (response.status) {
-                swal({
-                    title: "Delete the Offer!!!",
-                    type: 'success',
-                    timer: 500
-                });
-                location.reload()
-            }
-            else {
-                alert('dfghj')
-            }
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                url: '/admin/delete-cat-offer/' + proId,
+                method: 'delete',
+                success: (response) => {
+                    if (response.status) {
+                        Swal.fire({
+                            title: 'Deleted!',
+                            text: 'The offer has been deleted.',
+                            icon: 'success'
+                        });
+                        location.reload()
+                    }
+                    else {
+                        Swal.fire({
+                            title: 'Error!',
+                            text: 'Something went wrong.',
+                            icon: 'error'
+                        });
+                    }
+                }
+            })
         }
     })
 }
 
+
+
+// function deleteCouponCode(proId) {
+//     $.ajax({
+//         url: '/admin/delete-coupon-offer/' + proId,
+//         method: 'delete',
+//         success: (response) => {
+//             if (response.status) {
+//                 swal({
+//                     title: "Delete the Offer!!!",
+//                     type: 'success',
+//                     timer: 500
+//                 });
+//                 location.reload()
+//             }
+//             else {
+//                 alert('dfghj')
+//             }
+//         }
+//     })
+// }
 
 function deleteCouponCode(proId) {
-    $.ajax({
-        url: '/admin/delete-coupon-offer/' + proId,
-        method: 'delete',
-        success: (response) => {
-            if (response.status) {
-                swal({
-                    title: "Delete the Offer!!!",
-                    type: 'success',
-                    timer: 500
-                });
-                location.reload()
-            }
-            else {
-                alert('dfghj')
-            }
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                url: '/admin/delete-coupon-offer/' + proId,
+                method: 'delete',
+                success: (response) => {
+                    if (response.status) {
+                        Swal.fire({
+                            title: 'Deleted!',
+                            text: 'The offer has been deleted.',
+                            icon: 'success'
+                        });
+                        location.reload()
+                    }
+                    else {
+                        Swal.fire({
+                            title: 'Error!',
+                            text: 'Something went wrong.',
+                            icon: 'error'
+                        });
+                    }
+                }
+            })
         }
     })
 }
+
 
 
 $("#addAddress").submit((e) => {
@@ -199,49 +338,145 @@ $("#addNewAddress").submit((e) => {
 
 
 
+// function makeAddressDefault(addressId) {
+//     $.ajax({
+//         url: '/makeAddressDefault/' + addressId,
+//         method: 'get',
+//         success: (response) => {
+//             if (response) {
+//                 location.reload()
+//             }
+//         }
+//     })
+// }
+
 function makeAddressDefault(addressId) {
-    $.ajax({
-        url: '/makeAddressDefault/' + addressId,
-        method: 'get',
-        success: (response) => {
-            if (response) {
-                location.reload()
-            }
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "This will make the selected address the default address. Do you want to continue?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, make it default!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                url: '/makeAddressDefault/' + addressId,
+                method: 'get',
+                success: (response) => {
+                    if (response) {
+                        location.reload()
+                    }
+                }
+            })
         }
     })
 }
+
+
+// function deleteAddress(addressId) {
+//     $.ajax({
+//         url: '/deleteAddress/' + addressId,
+//         method: 'delete',
+//         success: (response) => {
+//             if (response) {
+//                 location.reload()
+//             }
+//         }
+//     })
+// }
 
 function deleteAddress(addressId) {
-    $.ajax({
-        url: '/deleteAddress/' + addressId,
-        method: 'delete',
-        success: (response) => {
-            if (response) {
-                location.reload()
-            }
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                url: '/deleteAddress/' + addressId,
+                method: 'delete',
+                success: (response) => {
+                    if (response) {
+                        location.reload()
+                    }
+                }
+            })
         }
     })
 }
+
+
+// function deleteCategory(id) {
+//     $.ajax({
+//         url: '/admin/delete-category/' + id,
+//         method: 'delete',
+//         success: () => {
+//             location.reload()
+//         }
+//     })
+// }
 
 function deleteCategory(id) {
-    $.ajax({
-        url: '/admin/delete-category/' + id,
-        method: 'delete',
-        success: () => {
-            location.reload()
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                url: '/admin/delete-category/' + id,
+                method: 'delete',
+                success: () => {
+                    location.reload()
+                }
+            })
         }
     })
 }
 
+
+// function deleteProd(id) {
+//     $.ajax({
+//         url: '/admin/delete-product/' + id,
+//         method: 'delete',
+//         success: () => {
+//             location.reload()
+//         }
+//     })
+// }
+
 function deleteProd(id) {
-    $.ajax({
-        url: '/admin/delete-product/' + id,
-        method: 'delete',
-        success: () => {
-            location.reload()
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                url: '/admin/delete-product/' + id,
+                method: 'delete',
+                success: () => {
+                    location.reload()
+                }
+            })
         }
     })
 }
+
 
 
 function setBannerFirst(id) {
@@ -298,39 +533,101 @@ function setBannerThird(id) {
     })
 }
 
-function deleteBanner(id) {
-    $.ajax({
-        url: '/admin/deleteBanner/' + id,
-        method: 'delete',
-        success: (response) => {
-            setTimeout(()=>{
-                location.reload()
-            },500)
-            Swal.fire({
-                title: 'DELETED!!!',
-                icon: 'success',
-                confirmButtonText: 'OK'
-            })
+// function deleteBanner(id) {
+//     $.ajax({
+//         url: '/admin/deleteBanner/' + id,
+//         method: 'delete',
+//         success: (response) => {
+//             setTimeout(()=>{
+//                 location.reload()
+//             },500)
+//             Swal.fire({
+//                 title: 'DELETED!!!',
+//                 icon: 'success',
+//                 confirmButtonText: 'OK'
+//             })
            
+//         }
+//     })
+// }
+
+function deleteBanner(id) {
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                url: '/admin/deleteBanner/' + id,
+                method: 'delete',
+                success: (response) => {
+                    setTimeout(() => {
+                        location.reload()
+                    }, 500)
+                    Swal.fire({
+                        title: 'DELETED!!!',
+                        icon: 'success',
+                        confirmButtonText: 'OK'
+                    })
+
+                }
+            })
         }
     })
 }
 
+
+
+// function deleteBannerU(id) {
+//     $.ajax({
+//         url: '/admin/deleteBannerU/' + id,
+//         method: 'delete',
+//         success: (response) => {
+//             setTimeout(()=>{
+//                 location.reload()
+//             },500)
+//             Swal.fire({
+//                 title: 'DELETED!!!',
+//                 icon: 'success',
+//                 confirmButtonText: 'OK'
+//             })
+           
+//         }
+//     })
+// }
 
 function deleteBannerU(id) {
-    $.ajax({
-        url: '/admin/deleteBannerU/' + id,
-        method: 'delete',
-        success: (response) => {
-            setTimeout(()=>{
-                location.reload()
-            },500)
-            Swal.fire({
-                title: 'DELETED!!!',
-                icon: 'success',
-                confirmButtonText: 'OK'
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                url: '/admin/deleteBannerU/' + id,
+                method: 'delete',
+                success: (response) => {
+                    setTimeout(() => {
+                        location.reload()
+                    }, 500)
+                    Swal.fire({
+                        title: 'DELETED!!!',
+                        icon: 'success',
+                        confirmButtonText: 'OK'
+                    })
+
+                }
             })
-           
         }
     })
 }
+

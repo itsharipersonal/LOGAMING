@@ -1,24 +1,27 @@
 <div class="text-center center-div" id="login">
   <div class="container w-50 border py-5">
     <div class="title">
-      <h2 class="font-weight-bold text-light" >EDIT CATEGORY</h2>
-     <form action="/admin/edit-category/{{category._id}}" method="post" id="reg-form" class="d-flex justify-content-center align-items-center flex-column"  enctype="multipart/form-data">
-     <label for="exampleFormControlFile1" class="text-light">CHANGE NAME</label>
-      <input type="text" name="category"  class="form-control w-50 p-3"  value="{{category.category}}"><br>
-                        <label for="exampleFormControlFile1" class="text-light">CHANGE IMAGE</label>
-                        <img src="/images/category-images/{{category._id}}.png" alt="" style="width:100px; hieght:auto;">
-                        <input type="file" class="form-control w-50 p-3" id="exampleFormControlFile1" name="image1"><br>
-                    
-      <button type="submit" class="p-2 w-25 btn text-light" id="addcategory">UPDATE</button>
-     </form>
+      <h2 class="font-weight-bold text-light">EDIT CATEGORY</h2>
+      <form action="/admin/edit-category/{{category._id}}" method="post" id="reg-form"
+        class="d-flex justify-content-center align-items-center flex-column" enctype="multipart/form-data">
+        <label for="exampleFormControlFile1" class="text-light">CHANGE NAME</label>
+        <input type="text" name="category" class="form-control w-50 p-3" value="{{category.category}}"><br>
+        <label for="exampleFormControlFile1" class="text-light">CHANGE IMAGE</label>
+        <img src="/images/category-images/{{category._id}}.png" alt="" style="width:100px; hieght:auto;">
+        <input type="file" class="form-control w-50 p-3" id="exampleFormControlFile1" name="image1"><br>
+
+        <button type="submit" class="p-2 w-25 btn text-light" id="addcategory">UPDATE</button>
+      </form>
     </div>
   </div>
 </div>
 
 
 <section>
-    <div class="container text-center">
-        <button type="submit" class="p-2 w-25 btn text-light" id="addcategory"><a href="/admin/category" style="text-decoration: none; color:white; matgin-right:10px">GO TO CATEGORY</a></button>
-        <button type="submit" class="p-2 w-25 btn text-light" id="addcategory"><a href="/admin" style="text-decoration: none; color:white">GO TO HOME</a></button>
-    </div>
+  <div class="container text-center">
+    <button type="submit" class="p-2 w-25 btn text-light" id="addcategory"><a href="/admin/category"
+        style="text-decoration: none; color:white; matgin-right:10px">GO TO CATEGORY</a></button>
+    <button type="submit" class="p-2 w-25 btn text-light" id="addcategory"><a href="/admin"
+        style="text-decoration: none; color:white">GO TO HOME</a></button>
+  </div>
 </section>

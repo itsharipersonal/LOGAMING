@@ -1,15 +1,10 @@
-const userHelpers = require('../../models/user/signin')
-const client = require("twilio")(
-  process.env.TWILIOID,
-  process.env.TWILIOPWD
-);
-
+const userHelpers = require("../../models/user/signin");
+const client = require("twilio")(process.env.TWILIOID, process.env.TWILIOPWD);
 
 module.exports = {
   userSignin: (req, res, next) => {
     res.render("user/signin", { userlogin: true });
     console.log(process.env.USERNAME);
-
   },
   postUserSignin: async (req, res) => {
     userHelpers.doLogin(req.body).then((response) => {
@@ -18,7 +13,7 @@ module.exports = {
         req.session.user = response.user;
         user = req.session.user;
         if (user.status) {
-          res.redirect('/')
+          res.redirect("/");
         } else {
           res.render("user/signin", {
             title: "LogIn",
@@ -77,7 +72,7 @@ module.exports = {
   otpVerification: (req, res) => {
     res.render("user/otp-verification", { not: true });
   },
-  postOtpVerifiaction:(req, res) => {
+  postOtpVerifiaction: (req, res) => {
     client.verify
       .services(process.env.TWILIOSID)
       .verificationChecks.create({
@@ -99,5 +94,5 @@ module.exports = {
         delete req.session.user;
         res.redirect("/signin");
       });
-  }
-}
+  },
+};

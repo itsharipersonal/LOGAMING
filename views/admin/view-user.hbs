@@ -1,26 +1,25 @@
-
 <div class=" text-center main1-3">
-                        <span class="span1">USER</span>
-                        <span class="span2">VIEW</span>
-                    </div>
+  <span class="span1">USER</span>
+  <span class="span2">VIEW</span>
+</div>
 
 <div class="text-center container" id="login">
   <div class="py-5">
     <div class="title">
-  
 
-    <table class="table" id="usersTable">
-      <thead>
-        <tr>
-          <th scope="col" class="text-uppercase text-center">Id</th>
-          <th scope="col" class="text-uppercase text-center">Name</th>
-          <th scope="col" class="text-uppercase text-center">Email</th>
-          <th scope="col" class="text-uppercase text-center">phone</th>
-          <th scope="col" class="text-uppercase text-center">Options</th>
-        </tr>
-      </thead>
-      <tbody>
-        {{#each user}}
+
+      <table class="table" id="usersTable">
+        <thead>
+          <tr>
+            <th scope="col" class="text-uppercase text-center">Id</th>
+            <th scope="col" class="text-uppercase text-center">Name</th>
+            <th scope="col" class="text-uppercase text-center">Email</th>
+            <th scope="col" class="text-uppercase text-center">phone</th>
+            <th scope="col" class="text-uppercase text-center">Options</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each user}}
           <tr>
 
             <th scope="row">{{this._id}}</th>
@@ -28,23 +27,22 @@
             <td class="text-uppercase text-center">{{this.email}}</td>
             <td class="text-uppercase text-center">{{this.phone}}</td>
             <td class="text-uppercase text-center">
-            {{#if this.status}}
-            <a href="/admin/block-user/{{this._id}}" class="btn btn-danger ms-5 text-uppercase"
-              onclick="return confirm('Are you want to delete {{this.name}}')">block</a>
+              {{#if this.status}}
+              <a href="/admin/block-user/{{this._id}}" class="btn btn-danger ms-5 text-uppercase"
+                onclick="return confirm('Are you want to delete {{this.name}}')">block</a>
               {{else}}
-               <a href="/admin/block-user/{{this._id}}" class="btn btn-danger ms-5 text-uppercase"
-              onclick="return confirm('Are you want to delete {{this.name}}')">un block</a>
+              <a href="/admin/block-user/{{this._id}}" class="btn btn-danger ms-5 text-uppercase"
+                onclick="return confirm('Are you want to delete {{this.name}}')">un block</a>
               {{/if}}
-          </td>
+            </td>
 
           </tr>
-        {{/each}}
+          {{/each}}
 
-      </tbody>
-    </table>
+        </tbody>
+      </table>
 
-    
 
+
+    </div>
   </div>
-</div>
-

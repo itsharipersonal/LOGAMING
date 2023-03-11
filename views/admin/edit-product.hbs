@@ -10,37 +10,40 @@
                     </div>
                     <div class="form-group">
                         <label for="">PRODUCT NAME</label>
-                        <input type="name" class="form-control" name="productName" value="{{product.productName}}"/>
+                        <input type="name" class="form-control" name="productName" value="{{product.productName}}" />
                     </div>
                     <div class="form-group mt-3">
                         <label for="category">Select Category</label><br>
                         <select class="custom-select tm-select-accounts" id="category" name="category">
                             {{#each category}}
-                            <option value="{{this._id}}"  name="category">{{this.category}}</option>
-                             {{/each}}
+                            <option value="{{this._id}}" name="category">{{this.category}}</option>
+                            {{/each}}
                         </select>
                     </div>
                     <div class="form-group mt-3">
                         <label for="">DESCRIPTION</label>
-                         <input type="name" class="form-control"  value="{{product.description}}" name="description" />
+                        <input type="name" class="form-control" value="{{product.description}}" name="description" />
                     </div>
                     <div class="form-group mt-3">
                         <label for="">BRAND</label>
-                        <input type="name" class="form-control"  value="{{product.brand}}" name="brand" />
+                        <input type="name" class="form-control" value="{{product.brand}}" name="brand" />
                     </div>
                     <div class="form-group mt-3">
                         <label for="">price</label>
-                        <input type="name" class="form-control"  value="{{product.price}}" name="price" />
+                        <input type="name" class="form-control" value="{{product.price}}" name="price" />
                     </div>
                     <div class="form-group mt-3">
-                         <label for="">QUANTITY</label>
-                        <input type="name" class="form-control text-uppercase"  value="{{product.quantity}}" name="quantity" />
+                        <label for="">QUANTITY</label>
+                        <input type="name" class="form-control text-uppercase" value="{{product.quantity}}"
+                            name="quantity" />
                     </div>
                     <div class="form-group mt-3">
                         <label for="">FEATURES</label>
-                        <input type="name" class="form-control text-uppercase" value="{{product.features}}" name="features" />
+                        <input type="name" class="form-control text-uppercase" value="{{product.features}}"
+                            name="features" />
                     </div>
-                    <button class="btn mt-3 mx-3 "><a href="/admin/edit-image/{{product._id}}" style="text-decoration:none;" class="text-light">EDIT IMAGE</a></button>
+                    <button class="btn mt-3 mx-3 "><a href="/admin/edit-image/{{product._id}}"
+                            style="text-decoration:none;" class="text-light">EDIT IMAGE</a></button>
                     <button type="submit" class="btn mt-3" onclick="return validateForm()"> ADD PRODUCT</button><br>
                 </form>
             </div>

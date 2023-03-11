@@ -34,7 +34,8 @@
               {{this.paymentMethod}}</td>
             <td class="text-uppercase text-center" style="font-weight:800;color:rgb(255, 255, 255);font-size:17px">
               {{this.status}}</td>
-            <td class="text-uppercase text-center"><a href="/admin/view-orderAdmin/{{this._id}}" class="btn btn-warning">VIEW
+            <td class="text-uppercase text-center"><a href="/admin/view-orderAdmin/{{this._id}}"
+                class="btn btn-warning">VIEW
                 ORDER</a>
               {{#if btn}}
               <button class="btn btn-warning text-dark" onclick="orderShipped('{{this._id}}')"
@@ -45,9 +46,10 @@
                 id="orderCancelBtn{{this._id}}">CANCEL</button>
 
               {{/if}}
-            {{#if productReturning}}
-            <button class="btn btn-warning text-dark mt-2 " onclick="returnOrderRecieved('{{this._id}}')">RETURN RECIEVED</button>
-            {{/if}}
+              {{#if productReturning}}
+              <button class="btn btn-warning text-dark mt-2 " onclick="returnOrderRecieved('{{this._id}}')">RETURN
+                RECIEVED</button>
+              {{/if}}
 
 
             </td>
@@ -58,8 +60,5 @@
 
         </tbody>
       </table>
-
-
-
     </div>
   </div>
